@@ -1,0 +1,32 @@
+.dark-mode {
+  background: #222;
+  color: #fff;
+}
+.light-mode {
+  background: #fff;
+  color: #222;
+}
+
+/* Ajustes responsivos basados en PagU */
+@media (max-width: 768px) {
+  .config-main-container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .config-main-container {
+    padding: 0.5rem;
+  }
+}
+
+/* Eliminar scroll horizontal y alinear contenido */
+body {
+  overflow-x: hidden; /* Evitar scroll horizontal */
+}
+
+.config-main-container {
+  margin: 0 auto; /* Centrar el contenedor */
+  padding: 0 1rem; /* Espaciado interno para evitar desbordes */
+  max-width: 1200px; /* Limitar el ancho máximo */
+}

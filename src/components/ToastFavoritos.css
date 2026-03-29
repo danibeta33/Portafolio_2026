@@ -1,0 +1,68 @@
+.toast-fav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(44, 50, 70, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.toast-fav-window {
+  background: #2d3146;
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #23283b55;
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  min-width: 320px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: toastFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes toastFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(30px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04) translateY(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.toast-fav-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.toast-fav-btn-row {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+.toast-fav-btn {
+  background: #3a3f5c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.toast-fav-btn-rosado {
+  background: #d13c5a;
+}
+.toast-fav-btn:hover {
+  background: #23283b;
+}
