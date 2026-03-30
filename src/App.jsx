@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import './index.css'
 
 const PROFILE = {
@@ -16,7 +17,7 @@ const NAV_LINKS = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Perfil', href: '#perfil' },
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Bloques', href: '#bloques' },
+  { label: 'Proyectos', href: '#proyectos' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
@@ -34,51 +35,93 @@ const PROJECT_CATEGORIES = [
 const PROJECT_BLOCKS = [
   {
     id: 1,
-    title: 'Template Project 01',
+    name: 'Template Project 01',
     description:
       'Descripcion template para este bloque. Puedes reemplazarla por detalles del objetivo, proceso y resultado.',
-    image: TEMPLATE_IMAGE,
+    genre: 'Aventura narrativa',
+    itchLink: 'https://example.itch.io/template-project-01',
     categories: ['Proyectos Universitarios'],
+    captures: [TEMPLATE_IMAGE, TEMPLATE_IMAGE, TEMPLATE_IMAGE],
+    trailer: 'https://www.youtube.com/watch?v=template01',
+    expectations:
+      'Construir una experiencia jugable estable, con identidad visual clara y una presentacion lista para entrega.',
+    learnings:
+      'Aprendizaje template sobre pipeline, organizacion de tareas y optimizacion de tiempos de produccion.',
   },
   {
     id: 2,
-    title: 'Template Project 02',
+    name: 'Template Project 02',
     description:
       'Descripcion template para este bloque. Puedes reemplazarla por detalles del objetivo, proceso y resultado.',
-    image: TEMPLATE_IMAGE,
+    genre: 'Puzzle 2D',
+    itchLink: 'https://example.itch.io/template-project-02',
     categories: ['Proyectos Personales'],
+    captures: [TEMPLATE_IMAGE, TEMPLATE_IMAGE, TEMPLATE_IMAGE],
+    trailer: 'https://www.youtube.com/watch?v=template02',
+    expectations:
+      'Consolidar mecanicas comprensibles y una curva de dificultad progresiva para mejorar la experiencia.',
+    learnings:
+      'Aprendizaje template en diseno de niveles, balance de sistemas y depuracion de eventos.',
   },
   {
     id: 3,
-    title: 'Template Project 03',
+    name: 'Template Project 03',
     description:
       'Descripcion template para este bloque. Puedes reemplazarla por detalles del objetivo, proceso y resultado.',
-    image: TEMPLATE_IMAGE,
+    genre: 'Accion arcade',
+    itchLink: 'https://example.itch.io/template-project-03',
     categories: ['Ganadores'],
+    captures: [TEMPLATE_IMAGE, TEMPLATE_IMAGE, TEMPLATE_IMAGE],
+    trailer: 'https://www.youtube.com/watch?v=template03',
+    expectations:
+      'Lograr una build pulida para convocatoria con rendimiento estable y una identidad audiovisual fuerte.',
+    learnings:
+      'Aprendizaje template en testing, iteracion rapida y documentacion para jurados y usuarios.',
   },
   {
     id: 4,
-    title: 'Template Project 04',
+    name: 'Template Project 04',
     description:
       'Descripcion template para este bloque. Puedes reemplazarla por detalles del objetivo, proceso y resultado.',
-    image: TEMPLATE_IMAGE,
+    genre: 'Simulacion',
+    itchLink: 'https://example.itch.io/template-project-04',
     categories: ['Proyectos de Formacion'],
+    captures: [TEMPLATE_IMAGE, TEMPLATE_IMAGE, TEMPLATE_IMAGE],
+    trailer: 'https://www.youtube.com/watch?v=template04',
+    expectations:
+      'Desarrollar una entrega academica robusta con tecnicas visuales y gameplay alineado al brief.',
+    learnings:
+      'Aprendizaje template en integracion entre arte tecnico, scripting y presentacion final.',
   },
   {
     id: 5,
-    title: 'Template Project 05',
+    name: 'Template Project 05',
     description:
       'Descripcion template para este bloque. Puedes reemplazarla por detalles del objetivo, proceso y resultado.',
-    image: TEMPLATE_IMAGE,
+    genre: 'RPG tactico',
+    itchLink: 'https://example.itch.io/template-project-05',
     categories: ['Proyectos Universitarios', 'Ganadores'],
+    captures: [TEMPLATE_IMAGE, TEMPLATE_IMAGE, TEMPLATE_IMAGE],
+    trailer: 'https://www.youtube.com/watch?v=template05',
+    expectations:
+      'Crear una demo vertical slice que comunique el potencial total del proyecto para concurso o vitrina.',
+    learnings:
+      'Aprendizaje template en planificacion de milestones, UI diegetica y optimizacion de flujo.',
   },
   {
     id: 6,
-    title: 'Template Project 06',
+    name: 'Template Project 06',
     description:
       'Descripcion template para este bloque. Puedes reemplazarla por detalles del objetivo, proceso y resultado.',
-    image: TEMPLATE_IMAGE,
+    genre: 'Plataformas',
+    itchLink: 'https://example.itch.io/template-project-06',
     categories: ['Proyectos Personales', 'Proyectos de Formacion'],
+    captures: [TEMPLATE_IMAGE, TEMPLATE_IMAGE, TEMPLATE_IMAGE],
+    trailer: 'https://www.youtube.com/watch?v=template06',
+    expectations:
+      'Mejorar sensaciones de control, feedback visual y coherencia artistica para una experiencia solida.',
+    learnings:
+      'Aprendizaje template sobre ajustes finos de jugabilidad y consistencia visual entre escenas.',
   },
 ]
 
@@ -164,7 +207,81 @@ function Bubble({ direction = 'left', bg = 'black', textColor = 'white', borderC
   )
 }
 
+function GamePage({ project, profileName, currentHeroTheme, onBack }) {
+  return (
+    <main className={`game-page hero-theme-${currentHeroTheme}`}>
+      <section className="section-shell game-shell">
+        <div className="game-topbar">
+          <Button bg="black" textColor="white" borderColor="white" shadow="white" onClick={onBack}>
+            Volver a Inicio
+          </Button>
+        </div>
+        <article className="game-article">
+          <header className="game-header">
+            <p className="game-author">{profileName}</p>
+            <h1>{project.name}</h1>
+            <p>{project.description}</p>
+          </header>
+
+          <div className="game-grid-info">
+            <div className="game-info-box">
+              <p className="project-meta-title">Genero</p>
+              <p>{project.genre}</p>
+            </div>
+            <div className="game-info-box">
+              <p className="project-meta-title">Categorias</p>
+              <div className="project-tags">
+                {project.categories.map((category) => (
+                  <span key={`${project.id}-${category}`} className="project-tag">
+                    {category}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="project-link-wrap">
+            <a className="project-link" href={project.itchLink} target="_blank" rel="noreferrer">
+              Ir a Itch
+            </a>
+            <a className="project-link" href={project.trailer} target="_blank" rel="noreferrer">
+              Ver Trailer
+            </a>
+          </div>
+
+          <section className="project-captures">
+            <p className="project-meta-title">Capturas</p>
+            <div className="captures-grid">
+              {project.captures.map((capture, index) => (
+                <img
+                  key={`${project.id}-game-capture-${index}`}
+                  className="capture-item"
+                  src={capture}
+                  alt={`${project.name} captura ${index + 1}`}
+                />
+              ))}
+            </div>
+          </section>
+
+          <section className="game-grid-info">
+            <div className="game-info-box">
+              <p className="project-meta-title">Expectativas</p>
+              <p>{project.expectations}</p>
+            </div>
+            <div className="game-info-box">
+              <p className="project-meta-title">Aprendizajes</p>
+              <p>{project.learnings}</p>
+            </div>
+          </section>
+        </article>
+      </section>
+    </main>
+  )
+}
+
 function App() {
+  const navigate = useNavigate()
+  const location = useLocation()
   const [scrolled, setScrolled] = useState(false)
   const [themeIndex, setThemeIndex] = useState(0)
   const [isLightMode, setIsLightMode] = useState(false)
@@ -229,6 +346,13 @@ function App() {
     if (selectedCategory === 'Todos') return PROJECT_BLOCKS
     return PROJECT_BLOCKS.filter((project) => project.categories.includes(selectedCategory))
   }, [selectedCategory])
+  const isDetailedProjectsView = selectedCategory !== 'Todos'
+  const activeProject = useMemo(() => {
+    const gameMatch = location.pathname.match(/^\/game\/(\d+)$/)
+    if (!gameMatch) return null
+    const id = Number(gameMatch[1])
+    return PROJECT_BLOCKS.find((project) => project.id === id) ?? null
+  }, [location.pathname])
   const categoryCounts = useMemo(
     () =>
       PROJECT_CATEGORIES.map((category) => ({
@@ -263,17 +387,123 @@ function App() {
     setIsNamePressed(true)
   }
 
+  const scrollTopHard = () => {
+    window.scrollTo({ top: 0, behavior: 'auto' })
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
+  }
+
+  const handleHomeNavigation = (event) => {
+    if (event) event.preventDefault()
+    navigate('/')
+    requestAnimationFrame(scrollTopHard)
+  }
+
+  const handleSectionNavigation = (event, href) => {
+    event.preventDefault()
+    if (href === '#inicio') {
+      handleHomeNavigation()
+      return
+    }
+    const sectionId = href.replace('#', '')
+    navigate('/')
+    setTimeout(() => {
+      const sectionElement = document.getElementById(sectionId)
+      if (sectionElement) {
+        sectionElement.scrollIntoView({ behavior: 'auto', block: 'start' })
+      }
+    }, 0)
+  }
+
+  const handleOpenProject = (projectId) => {
+    navigate(`/game/${projectId}`)
+    requestAnimationFrame(scrollTopHard)
+  }
+
+  useEffect(() => {
+    if (location.pathname.startsWith('/game/')) {
+      scrollTopHard()
+    }
+  }, [location.pathname])
+
+  if (location.pathname.startsWith('/game/')) {
+    return (
+      <div className={`app-shell ${isLightMode ? 'app-shell-light' : 'app-shell-dark'}`}>
+        <header className="site-header">
+          <nav className="nav-shell">
+            <a
+              className={`logo-tag ${scrolled ? 'logo-tag-scrolled' : ''}`}
+              href="/"
+              onClick={handleHomeNavigation}
+            >
+              DANIEL
+            </a>
+            <div className="nav-side">
+              <div className="nav-links">
+                {NAV_LINKS.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(event) => handleSectionNavigation(event, link.href)}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+              <label className="mode-switch" aria-label="Cambiar modo claro u oscuro">
+                <input
+                  type="checkbox"
+                  checked={isLightMode}
+                  onChange={(event) => setIsLightMode(event.target.checked)}
+                />
+                <span className="mode-switch-slider" />
+                <span className="mode-switch-text">{isLightMode ? 'Light' : 'Dark'}</span>
+              </label>
+            </div>
+          </nav>
+        </header>
+
+        {activeProject ? (
+          <GamePage
+            project={activeProject}
+            profileName={PROFILE.name}
+            currentHeroTheme={currentHeroTheme}
+            onBack={handleHomeNavigation}
+          />
+        ) : (
+          <main className={`game-page hero-theme-${currentHeroTheme}`}>
+            <section className="section-shell game-shell">
+              <article className="game-article">
+                <h1>Proyecto no encontrado</h1>
+                <p>La ruta no coincide con un proyecto registrado.</p>
+                <div className="project-action-wrap">
+                  <Button bg="black" textColor="white" borderColor="white" shadow="white" onClick={handleHomeNavigation}>
+                    Volver a Inicio
+                  </Button>
+                </div>
+              </article>
+            </section>
+          </main>
+        )}
+      </div>
+    )
+  }
+
   return (
     <div className={`app-shell ${isLightMode ? 'app-shell-light' : 'app-shell-dark'}`}>
       <header className="site-header">
         <nav className="nav-shell">
-          <a className={`logo-tag ${scrolled ? 'logo-tag-scrolled' : ''}`} href="#inicio">
+          <a
+            className={`logo-tag ${scrolled ? 'logo-tag-scrolled' : ''}`}
+            href="/"
+            onClick={handleHomeNavigation}
+          >
             DANIEL
           </a>
           <div className="nav-side">
             <div className="nav-links">
               {NAV_LINKS.map((link) => (
-                <a key={link.href} href={link.href}>
+                <a key={link.href} href={link.href} onClick={(event) => handleSectionNavigation(event, link.href)}>
                   {link.label}
                 </a>
               ))}
@@ -380,20 +610,74 @@ function App() {
               </Button>
             ))}
           </div>
-          <div className="project-grid">
+          <div className={`project-grid ${isDetailedProjectsView ? 'project-grid-detailed' : 'project-grid-compact'}`}>
             {filteredProjects.map((project) => (
               <article key={project.id} className="project-card">
-                <img className="project-image" src={project.image} alt={project.title} />
                 <div className="project-body">
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <div className="project-tags">
-                    {project.categories.map((category) => (
-                      <span key={`${project.id}-${category}`} className="project-tag">
-                        {category}
-                      </span>
-                    ))}
-                  </div>
+                  <h3>{project.name}</h3>
+
+                  {!isDetailedProjectsView && (
+                    <>
+                      <img className="project-thumb" src={project.captures[0]} alt={project.name} />
+                      <p>{project.description}</p>
+                      <div className="project-tags">
+                        {project.categories.map((category) => (
+                          <span key={`${project.id}-${category}`} className="project-tag">
+                            {category}
+                          </span>
+                        ))}
+                      </div>
+                    </>
+                  )}
+
+                  {isDetailedProjectsView && (
+                    <>
+                      <div className="project-meta-line">
+                        <span className="project-meta-label">Genero:</span>
+                        <span>{project.genre}</span>
+                      </div>
+                      <p>{project.description}</p>
+                      <div className="project-link-wrap">
+                        <a className="project-link" href={project.itchLink} target="_blank" rel="noreferrer">
+                          Itch Link
+                        </a>
+                        <a className="project-link" href={project.trailer} target="_blank" rel="noreferrer">
+                          Trailer
+                        </a>
+                      </div>
+                      <div className="project-tags">
+                        {project.categories.map((category) => (
+                          <span key={`${project.id}-${category}`} className="project-tag">
+                            {category}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="project-captures">
+                        <p className="project-meta-title">Capturas</p>
+                        <div className="captures-grid">
+                          {project.captures.map((capture, index) => (
+                            <img
+                              key={`${project.id}-capture-${index}`}
+                              className="capture-item"
+                              src={capture}
+                              alt={`${project.name} captura ${index + 1}`}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                      <div className="project-action-wrap">
+                        <Button
+                          bg={isLightMode ? '#ffffff' : '#000000'}
+                          textColor={isLightMode ? '#000000' : '#ffffff'}
+                          borderColor={heroAccentColor}
+                          shadow={heroAccentColor}
+                          onClick={() => handleOpenProject(project.id)}
+                        >
+                          Ver proyecto
+                        </Button>
+                      </div>
+                    </>
+                  )}
                 </div>
               </article>
             ))}

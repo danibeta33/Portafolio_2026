@@ -200,10 +200,10 @@ main {
 
 .hero-section {
   position: relative;
-  min-height: 100vh;
+  min-height: 78vh;
   display: grid;
   place-items: center;
-  padding: 2rem 1.2rem;
+  padding: 2rem 1.2rem 0.5rem;
   border-bottom: 1px solid var(--panel-border);
 }
 
@@ -273,7 +273,10 @@ body.light-mode .hero-theme-green {
 
 .hero-pattern {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(50% + 17rem);
   pointer-events: none;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -527,8 +530,15 @@ body.light-mode .hero-column {
 .project-grid {
   margin-top: 1.35rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
+}
+
+.project-grid-compact {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.project-grid-detailed {
+  grid-template-columns: 1fr;
 }
 
 .project-card {
@@ -537,32 +547,64 @@ body.light-mode .hero-column {
   overflow: hidden;
 }
 
-.project-image {
+.project-body {
+  padding: 1rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.project-thumb {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-bottom: 1px solid var(--hero-border, rgba(255, 255, 255, 0.28));
-  filter: saturate(0.85) contrast(1.05);
-}
-
-.project-body {
-  padding: 0.85rem;
+  border: 1px solid var(--hero-border, rgba(255, 255, 255, 0.28));
+  background: color-mix(in srgb, var(--fg) 8%, transparent);
 }
 
 .project-body h3 {
   margin: 0;
   color: var(--hero-main, #fff);
-  font-size: 1rem;
+  font-size: 1.2rem;
+}
+
+.project-meta-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  color: var(--muted);
+}
+
+.project-meta-label {
+  color: var(--hero-main, #fff);
 }
 
 .project-body p {
-  margin: 0.55rem 0 0;
+  margin: 0;
   text-align: left;
   color: var(--muted);
 }
 
+.project-link-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-link {
+  border: 1px solid var(--hero-border-strong, rgba(255, 255, 255, 0.5));
+  background: color-mix(in srgb, var(--hero-main) 16%, transparent);
+  color: var(--fg);
+  padding: 0.3rem 0.55rem;
+  transition: all 160ms ease;
+}
+
+.project-link:hover {
+  background: var(--hero-main, #fff);
+  color: var(--bg);
+}
+
 .project-tags {
-  margin-top: 0.75rem;
+  margin-top: 0.2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
@@ -574,6 +616,113 @@ body.light-mode .hero-column {
   background: color-mix(in srgb, var(--fg) 6%, transparent);
   padding: 0.2rem 0.45rem;
   font-size: 0.7rem;
+}
+
+.project-captures {
+  margin-top: 0.2rem;
+}
+
+.project-meta-title {
+  color: var(--hero-main, #fff);
+  margin: 0;
+}
+
+.captures-grid {
+  margin-top: 0.45rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.capture-item {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid var(--hero-border, rgba(255, 255, 255, 0.3));
+  background: color-mix(in srgb, var(--fg) 8%, transparent);
+  transition: transform 180ms ease, opacity 180ms ease, filter 180ms ease;
+}
+
+.captures-grid:hover .capture-item {
+  transform: scale(0.95);
+  opacity: 0.42;
+  filter: saturate(0.8);
+}
+
+.captures-grid:hover .capture-item:hover {
+  transform: scale(1.12);
+  opacity: 1;
+  z-index: 2;
+  filter: saturate(1.05);
+}
+
+.project-action-wrap {
+  margin-top: 0.2rem;
+}
+
+.project-notes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.project-note-box {
+  border: 1px solid var(--hero-border, rgba(255, 255, 255, 0.28));
+  background: color-mix(in srgb, var(--fg) 5%, transparent);
+  padding: 0.6rem;
+}
+
+.game-page {
+  padding-top: 5.8rem;
+  min-height: 100vh;
+}
+
+.game-shell {
+  padding-top: 1rem;
+}
+
+.game-topbar {
+  margin-bottom: 1rem;
+}
+
+.game-article {
+  border: 1px solid var(--hero-border-strong, rgba(255, 255, 255, 0.5));
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.02), var(--panel-bg));
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.game-header h1 {
+  margin: 0;
+  color: var(--hero-main, #fff);
+  font-size: clamp(1.4rem, 3.2vw, 2.6rem);
+}
+
+.game-header p {
+  margin: 0.45rem 0 0;
+  text-align: left;
+}
+
+.game-author {
+  color: var(--hero-main, #fff);
+}
+
+.game-grid-info {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.game-info-box {
+  border: 1px solid var(--hero-border, rgba(255, 255, 255, 0.28));
+  background: color-mix(in srgb, var(--fg) 5%, transparent);
+  padding: 0.65rem;
+}
+
+.game-info-box p {
+  margin: 0;
+  text-align: left;
 }
 
 .contact-shell {
@@ -620,6 +769,7 @@ body.light-mode .hero-column {
   .hero-pattern {
     grid-template-columns: 1fr;
     gap: 0.4rem;
+    height: calc(50% + 12rem);
   }
 
   .hero-column {
@@ -632,5 +782,17 @@ body.light-mode .hero-column {
 
   .hero-sistemas-beta {
     padding: 0.8rem 1rem;
+  }
+
+  .captures-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-notes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-grid-info {
+    grid-template-columns: 1fr;
   }
 }
