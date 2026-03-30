@@ -75,9 +75,6 @@ export const HERO_PATTERN = `+--------------------------------------------------
 | [SYS] Sistemas BETA ready                                                      |
 +--------------------------------------------------------------------------------+`
 
-const TEMPLATE_IMAGE =
-  'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360"%3E%3Crect width="640" height="360" fill="%23070707"/%3E%3Crect x="18" y="18" width="604" height="324" fill="none" stroke="%23f0f0f0" stroke-opacity="0.45" stroke-dasharray="12 8"/%3E%3Ctext x="50%25" y="46%25" fill="%23f0f0f0" fill-opacity="0.75" font-size="28" text-anchor="middle" font-family="monospace"%3ETemplate Image%3C/text%3E%3Ctext x="50%25" y="58%25" fill="%23f0f0f0" fill-opacity="0.55" font-size="16" text-anchor="middle" font-family="monospace"%3EPreview Placeholder%3C/text%3E%3C/svg%3E'
-
 export const PROJECT_CATEGORIES = [
   'Todos',
   'Proyectos Universitarios',
@@ -109,95 +106,115 @@ export const SERVICES = [
   },
 ]
 
+const BASE_URL = import.meta.env.BASE_URL || '/'
+const withBase = (assetPath) => `${BASE_URL}${assetPath.replace(/^\//, '')}`
+
 export const PROJECTS = [
   {
     id: 1,
-    name: 'Template Project 01',
-    description:
-      'Descripcion template para este bloque. Puedes reemplazarla por detalles del objetivo, proceso y resultado.',
-    genre: 'Aventura narrativa',
-    itchLink: 'https://example.itch.io/template-project-01',
-    categories: ['Proyectos Universitarios'],
-    captures: [TEMPLATE_IMAGE, TEMPLATE_IMAGE, TEMPLATE_IMAGE],
-    trailer: 'https://www.youtube.com/watch?v=template01',
-    expectations:
-      'Construir una experiencia jugable estable, con identidad visual clara y una presentacion lista para entrega.',
-    learnings:
-      'Aprendizaje template sobre pipeline, organizacion de tareas y optimizacion de tiempos de produccion.',
+    name: 'Perfect Tourist',
+    shortDescription:
+      'Con lo que tengas a la mano, deberas superar desafios, rebuscarte la plata y ahorrar juicioso para lograr el paseo de tu vida.',
+    longDescription:
+      'Juego desarrollado para la INTERACTION: GAME JAM DE VERANO, ganadores del primer puesto.\n\nEs un juego de retos rapidos donde tendras que improvisar porque... se te olvidaron las vacaciones. Con lo que tengas a la mano, deberas superar desafios, rebuscarte la plata y ahorrar juicioso para lograr el paseo de tu vida, demostrando que si se puede vacacionar bueno, bonito y barato.\nSumergite en ambientes de playa, sol y mar, con un flow bien vacacional, y preparate para convertir cualquier situacion en la oportunidad perfecta para viajar.',
+    genre: 'Rompecabezas, Accion',
+    itchLink: 'https://danibeta33.itch.io/perfect-tourist',
+    categories: ['Proyectos Personales', 'Ganadores'],
+    captures: [
+      withBase('/imgs/PerfectTourist_Portada.jpeg'),
+      withBase('/imgs/PerfectTourist_1.png'),
+      withBase('/imgs/PerfectTourist_2.jpg'),
+      withBase('/imgs/PerfectTourist_3.jpeg'),
+      withBase('/imgs/PerfectTourist_4.jpeg'),
+      withBase('/imgs/PerfectTourist_5.png'),
+    ],
+    trailer: 'https://www.youtube.com/watch?v=HcFZ8kX9dYc&source_ve_path=NzY3NTg&embeds_referring_euri=https%3A%2F%2Fdanibeta33.itch.io%2Fperfect-tourist',
+    expectations: '',
+    learnings: '',
   },
   {
     id: 2,
-    name: 'Template Project 02',
-    description:
-      'Descripcion template para este bloque. Puedes reemplazarla por detalles del objetivo, proceso y resultado.',
-    genre: 'Puzzle 2D',
-    itchLink: 'https://example.itch.io/template-project-02',
-    categories: ['Proyectos Personales'],
-    captures: [TEMPLATE_IMAGE, TEMPLATE_IMAGE, TEMPLATE_IMAGE],
-    trailer: 'https://www.youtube.com/watch?v=template02',
-    expectations:
-      'Consolidar mecanicas comprensibles y una curva de dificultad progresiva para mejorar la experiencia.',
-    learnings:
-      'Aprendizaje template en diseno de niveles, balance de sistemas y depuracion de eventos.',
+    name: 'MasKeeper',
+    shortDescription:
+      'En MasKeeper, un golem ancestral encargado de proteger las mascaras que dan forma a la realidad.',
+    longDescription:
+      'Juego desarrollado para la GLOBAL GAME JAM 2026, ganadores del segundo puesto sede Antioquia.\nPresentado con su propio stand en la Feria de la Animacion 2026.\nEn MasKeeper, tomaras el rol del Mask Keeper, un golem ancestral encargado de proteger las mascaras que dan forma a la realidad.\nTras un largo letargo, despiertas para descubrir que el mundo ha sido fragmentado en multiples capas, luego de que casi todas las mascaras fueran robadas.',
+    genre: 'Puzzle, Rompecabezas',
+    itchLink: 'https://danibeta33.itch.io/perfect-tourist',
+    categories: ['Proyectos Personales', 'Ganadores'],
+    captures: [
+      withBase('/imgs/MasKeeper_Portada.jpeg'),
+      withBase('/imgs/MasKeeper_1.png'),
+      withBase('/imgs/MasKeeper_2.png'),
+      withBase('/imgs/MasKeeper_3.png'),
+      withBase('/imgs/MasKeeper_4.jpeg'),
+      withBase('/imgs/MasKeeper_5.jpeg'),
+      withBase('/imgs/MasKeeper_6.png'),
+    ],
+    trailer: 'https://www.youtube.com/watch?v=T999Y6quyLg',
+    expectations: '',
+    learnings: '',
   },
   {
     id: 3,
-    name: 'Template Project 03',
-    description:
-      'Descripcion template para este bloque. Puedes reemplazarla por detalles del objetivo, proceso y resultado.',
-    genre: 'Accion arcade',
-    itchLink: 'https://example.itch.io/template-project-03',
-    categories: ['Ganadores'],
-    captures: [TEMPLATE_IMAGE, TEMPLATE_IMAGE, TEMPLATE_IMAGE],
-    trailer: 'https://www.youtube.com/watch?v=template03',
-    expectations:
-      'Lograr una build pulida para convocatoria con rendimiento estable y una identidad audiovisual fuerte.',
-    learnings:
-      'Aprendizaje template en testing, iteracion rapida y documentacion para jurados y usuarios.',
+    name: 'Klondike Miner',
+    shortDescription:
+      'Preparate para lanzar los dados y dejarte llevar por una avalancha de partidas mientras ves girar tu destino.',
+    longDescription:
+      'Juego desarrollado con el proposito de mejorar en el entendimiento del diseno de juego, usando como fin usar el genero RogueLite y el juego de mesa Klondike.\n\nPreparate para lanzar los dados y dejarte llevar por una avalancha de partidas mientras ves girar tu destino. En este juego, usaras dados magicos disenados especialmente para explorar una mina sumergida en un casino repleto de materiales misteriosos.',
+    genre: 'Roguelite, Dice',
+    itchLink: 'https://danibeta33.itch.io/klondike-miner',
+    categories: ['Proyectos Universitarios'],
+    captures: [
+      withBase('/imgs/KlondikeMiner_Portada.png'),
+      withBase('/imgs/KlondikeMiner_1.png'),
+      withBase('/imgs/KlondikeMiner_2.png'),
+      withBase('/imgs/KlondikeMiner_3.png'),
+      withBase('/imgs/KlondikeMiner_4.png'),
+    ],
+    trailer: '',
+    expectations: '',
+    learnings: '',
   },
   {
     id: 4,
-    name: 'Template Project 04',
-    description:
-      'Descripcion template para este bloque. Puedes reemplazarla por detalles del objetivo, proceso y resultado.',
-    genre: 'Simulacion',
-    itchLink: 'https://example.itch.io/template-project-04',
-    categories: ['Proyectos de Formacion'],
-    captures: [TEMPLATE_IMAGE, TEMPLATE_IMAGE, TEMPLATE_IMAGE],
-    trailer: 'https://www.youtube.com/watch?v=template04',
-    expectations:
-      'Desarrollar una entrega academica robusta con tecnicas visuales y gameplay alineado al brief.',
-    learnings:
-      'Aprendizaje template en integracion entre arte tecnico, scripting y presentacion final.',
+    name: 'The White Square Simulator: Clicker',
+    shortDescription:
+      'The White Square surge como un proyecto universitario orientado a comprender y aplicar estos principios del genero clicker.',
+    longDescription:
+      'The White Square es una experiencia clicker disenada para enganchar desde el primer segundo, combinando sistemas matematicos precisos con una progresion constante y altamente satisfactoria. Cada accion del jugador impacta directamente en el crecimiento del negocio, creando un ciclo adictivo de decisiones, optimizacion y recompensas.\nEn este juego, asumes el rol de gerente de una tienda en constante movimiento, donde deberas gestionar pedidos de forma eficiente para generar ingresos, expandir tu operacion y desbloquear nuevas oportunidades. A medida que la demanda crece, podras contratar personal, adquirir mejoras estrategicas y optimizar cada aspecto de tu negocio para maximizar tus ganancias.',
+    genre: 'Clicker',
+    itchLink: 'https://danibeta33.itch.io/ws-clicker',
+    categories: ['Proyectos Universitarios'],
+    captures: [
+      withBase('/imgs/Clicker_Portada.png'),
+      withBase('/imgs/Clicker_1.png'),
+      withBase('/imgs/Clicker_2.png'),
+    ],
+    trailer: '',
+    expectations: '',
+    learnings: '',
   },
   {
     id: 5,
-    name: 'Template Project 05',
-    description:
-      'Descripcion template para este bloque. Puedes reemplazarla por detalles del objetivo, proceso y resultado.',
-    genre: 'RPG tactico',
-    itchLink: 'https://example.itch.io/template-project-05',
-    categories: ['Proyectos Universitarios', 'Ganadores'],
-    captures: [TEMPLATE_IMAGE, TEMPLATE_IMAGE, TEMPLATE_IMAGE],
-    trailer: 'https://www.youtube.com/watch?v=template05',
-    expectations:
-      'Crear una demo vertical slice que comunique el potencial total del proyecto para concurso o vitrina.',
-    learnings:
-      'Aprendizaje template en planificacion de milestones, UI diegetica y optimizacion de flujo.',
-  },
-  {
-    id: 6,
-    name: 'Template Project 06',
-    description:
-      'Descripcion template para este bloque. Puedes reemplazarla por detalles del objetivo, proceso y resultado.',
-    genre: 'Plataformas',
-    itchLink: 'https://example.itch.io/template-project-06',
-    categories: ['Proyectos Personales', 'Proyectos de Formacion'],
-    captures: [TEMPLATE_IMAGE, TEMPLATE_IMAGE, TEMPLATE_IMAGE],
-    trailer: 'https://www.youtube.com/watch?v=template06',
-    expectations:
-      'Mejorar sensaciones de control, feedback visual y coherencia artistica para una experiencia solida.',
-    learnings:
-      'Aprendizaje template sobre ajustes finos de jugabilidad y consistencia visual entre escenas.',
+    name: 'Las Sombras de la Mente',
+    shortDescription:
+      'Un juego de terror y puzzles en 2D donde, a traves de minijuegos, deberas sobrevivir a un virus que convierte a las personas en monstruos y encontrar una cura antes de perder la cordura.',
+    longDescription:
+      'Las Sombras de la Mente, nacio siendo un juego, el primer juego desarrollado para todos los integrantes del curso.\nEn la ciudad de Amarys, un misterioso virus amenaza con destruir todo rastro de humanidad, transformando a quienes padecen enfermedades o trastornos mentales en criaturas aterradoras. En este juego de terror y puzzles en 2D con perspectiva top-down, asumiras el rol de una protagonista recluida en el hospital mas grande de la ciudad, junto a un equipo de medicos que representa la ultima esperanza.\nLa experiencia combina exploracion, narrativa psicologica y una serie de minijuegos que actuan como desafios clave para avanzar. Cada reto pondra a prueba tus habilidades cognitivas, tu capacidad de analisis y tu temple frente a situaciones de alta tension. A medida que progresas, descubriras mas sobre el origen del virus y las complejidades de la mente humana.',
+    genre: 'Puzzle, Terror',
+    itchLink: 'https://danibeta33.itch.io/ws-clicker',
+    categories: ['Proyectos Universitarios'],
+    captures: [
+      withBase('/imgs/Sombras_Portada.png'),
+      withBase('/imgs/Sombras_1.png'),
+      withBase('/imgs/Sombras_2.jpeg'),
+      withBase('/imgs/Sombras_3.jpeg'),
+      withBase('/imgs/Sombras_4.png'),
+      withBase('/imgs/Sombras_5.jpeg'),
+    ],
+    trailer: '',
+    expectations: '',
+    learnings: '',
   },
 ]
