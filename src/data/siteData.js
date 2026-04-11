@@ -140,7 +140,7 @@ export const PROJECTS = [
     longDescription:
       'Juego desarrollado para la GLOBAL GAME JAM 2026, ganadores del segundo puesto sede Antioquia.\nPresentado con su propio stand en la Feria de la Animacion 2026.\nEn MasKeeper, tomaras el rol del Mask Keeper, un golem ancestral encargado de proteger las mascaras que dan forma a la realidad.\nTras un largo letargo, despiertas para descubrir que el mundo ha sido fragmentado en multiples capas, luego de que casi todas las mascaras fueran robadas.',
     genre: 'Puzzle, Rompecabezas',
-    itchLink: 'https://danibeta33.itch.io/perfect-tourist',
+    itchLink: 'https://jsm269.itch.io/maskeeper',
     categories: ['Proyectos Personales', 'Ganadores'],
     captures: [
       withBase('/imgs/MasKeeper_Portada.jpeg'),
@@ -212,6 +212,99 @@ export const PROJECTS = [
       withBase('/imgs/Sombras_3.jpeg'),
       withBase('/imgs/Sombras_4.png'),
       withBase('/imgs/Sombras_5.jpeg'),
+    ],
+    trailer: '',
+    expectations: '',
+    learnings: '',
+  },
+  {
+    id: 6,
+    name: 'Despercha234',
+    shortDescription:
+      'Un juego multijugador local para 2 a 4 jugadores que reune minijuegos clasicos colombianos como canicas, catapis, la lleva... Compite con tus amigos, gana puntos y revive la esencia de la cultura y la diversion en las calles.',
+    longDescription:
+      'Desparcha 2-3-4 es una experiencia multijugador local disenada para 2 a 4 jugadores, que captura la esencia de la infancia y la cultura colombiana a traves de una coleccion de minijuegos iconicos. Inspirado en juegos tradicionales como canicas, catapis, la lleva, carrera de sacos, tingo tingo tango y tejo, el juego invita a los jugadores a competir en dinamicas rapidas, divertidas y llenas de nostalgia.\nCada minijuego ofrece mecanicas unicas que ponen a prueba la habilidad, los reflejos y la estrategia, mientras los jugadores acumulan puntos para determinar al ganador. Ademas, el entorno visual y los elementos del juego incorporan simbolos representativos de la cultura colombiana, fortaleciendo la identidad y conexion con el contexto local.\nDesarrollado por The Lost Kids Studio x OP Studio, el juego fue reconocido en el DEX Showcase 2025-02 con los premios a Creatividad en Gameplay y Mejor videojuego del Semestre, destacandose por su propuesta innovadora y su enfoque cultural.',
+    genre: 'Puzzle, Minijuegos',
+    itchLink: 'https://jacobo1304.itch.io/desparcha234',
+    categories: ['Proyectos Universitarios', 'Ganadores'],
+    captures: [
+      withBase('/imgs/Des_Portada.png'),
+      withBase('/imgs/Des_1.png'),
+      withBase('/imgs/Des_2.png'),
+      withBase('/imgs/Des_3.png'),
+      withBase('/imgs/Des_4.png'),
+      withBase('/imgs/Des_5.png'),
+    ],
+    trailer: '',
+    expectations: '',
+    learnings: '',
+  },
+  {
+    id: 7,
+    name: 'Canal de Edicion de Video',
+    shortDescription:
+      'Un canal donde comparto proyectos de edicion de video realizados en distintos contextos, explorando diversos estilos, herramientas y enfoques creativos, incluyendo tambien algunos trabajos en bruto.',
+    longDescription:
+      'Este canal reune una variedad de proyectos que reflejan mi experiencia en la edicion de video en diferentes ambitos como el educativo, personal y profesional. A lo largo del tiempo he desarrollado habilidades de manera constante, experimentando con multiples formatos y estilos para mejorar cada resultado.\nAqui se presentan tanto trabajos finales como procesos de edicion, permitiendo ver la evolucion y el enfoque creativo detras de cada proyecto. He aprendido a adaptarme a distintas herramientas, incluso cuando presentan limitaciones por versiones o planes, aprovechando al maximo sus recursos para lograr resultados solidos y funcionales.\nHerramientas y Nivel de Manejo:\n- Adobe Premiere Pro - Nivel medio (en constante aprendizaje)\n- Camtasia - Nivel alto\n- CapCut - Nivel alto\n- Vegas Pro - Nivel medio\n- Adobe After Effects - Nivel basico (en aprendizaje)',
+    genre: 'Videos',
+    itchLink: 'https://www.youtube.com/@saldeaqui33/videos',
+    primaryLinkLabel: 'Canal de Youtube',
+    categories: ['Proyectos de Formacion'],
+    captures: [
+      withBase('/imgs/Falta_Portada.png'),
+      'https://img.youtube.com/vi/bLU37bVLafE/hqdefault.jpg',
+      'https://img.youtube.com/vi/olqNA_G5vYQ/hqdefault.jpg',
+      'https://img.youtube.com/vi/VIPJtVqPYa4/hqdefault.jpg',
+      'https://img.youtube.com/vi/-g0WYGpjXlE/hqdefault.jpg',
+    ],
+    captureLinks: [
+      'https://www.youtube.com/@saldeaqui33/videos',
+      'https://www.youtube.com/watch?v=bLU37bVLafE',
+      'https://www.youtube.com/watch?v=olqNA_G5vYQ&t=38s',
+      'https://www.youtube.com/watch?v=VIPJtVqPYa4',
+      'https://www.youtube.com/watch?v=-g0WYGpjXlE',
+    ],
+    trailer: '',
+    expectations: '',
+    learnings: '',
+  },
+  {
+    id: 8,
+    name: 'U-Bicate',
+    shortDescription:
+      'Plataforma web desarrollada para aplicar buenas practicas de diseno y desarrollo, utilizando React, Tailwind y Vite, con enfoque en interfaces modernas y responsive.',
+    longDescription:
+      'Esta plataforma web surge con el objetivo de aplicar y consolidar buenas practicas de diseno y desarrollo en entornos digitales, integrando tecnologias modernas como React, Tailwind CSS y Vite. El proyecto se enfoca en la creacion de interfaces intuitivas, eficientes y completamente adaptables a distintos dispositivos, priorizando la experiencia del usuario y la escalabilidad del sistema.\nMas alla de su enfoque tecnico, la plataforma aborda una problematica relevante: la falta de orientacion vocacional en jovenes que enfrentan la decision de elegir una carrera profesional. La ausencia de informacion clara y de autoconocimiento puede derivar en elecciones inadecuadas, desmotivacion e incluso abandono academico.\nEn este contexto, la solucion propuesta busca ofrecer un entorno digital que no solo cumpla con estandares de desarrollo moderno, sino que tambien sirva como herramienta de apoyo para guiar a los usuarios en la identificacion de sus habilidades, intereses y posibles caminos profesionales. A traves de un diseno accesible, dinamico y centrado en el usuario, la plataforma pretende facilitar la toma de decisiones informadas, combinando funcionalidad tecnologica con impacto social.',
+    genre: 'Pagina web',
+    itchLink: 'https://www.youtube.com/@saldeaqui33/videos',
+    primaryLinkLabel: 'Pagina Web',
+    categories: ['Proyectos Universitarios'],
+    captures: [
+      withBase('/imgs/Diseño_Portada.png'),
+      withBase('/imgs/Diseño_1.png'),
+      withBase('/imgs/Diseño_2.png'),
+      withBase('/imgs/Diseño_3.png'),
+      withBase('/imgs/Diseño_4.png'),
+    ],
+    trailer: '',
+    expectations: '',
+    learnings: '',
+  },
+  {
+    id: 9,
+    name: 'Ilustraciones',
+    isIllustrationsGame: true,
+    shortDescription:
+      'Coleccion interactiva de ilustraciones y clips convertida en un minijuego estilo Space Invaders.',
+    longDescription:
+      'Controla la nave y destruye todas las ilustraciones y videos que descienden desde la parte superior. Al terminar, se desbloquea una galeria final limpia con todos los assets.',
+    genre: 'Arcade, Interactivo',
+    itchLink: '',
+    categories: ['Proyectos Personales', 'Proyectos de Formacion'],
+    captures: [
+      withBase('/imgs/Minijuego/minijuego3.png'),
+      withBase('/imgs/Minijuego/minijuego14.png'),
+      withBase('/imgs/Minijuego/minijuego24.jpg'),
     ],
     trailer: '',
     expectations: '',

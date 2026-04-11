@@ -4,6 +4,6 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base:"/Proyecto_Dise-o_Adaptable/",
-  plugins: [react(),tailwindcss()],
+  base: '/Portafolio_2026/',
+  plugins: [react(), tailwindcss()],
 })

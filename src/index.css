@@ -48,7 +48,21 @@ body {
   color: var(--fg);
   font-family: 'VCR', 'Courier New', monospace;
   letter-spacing: 0.03em;
+  line-height: 1.45;
   overflow-x: hidden;
+}
+
+.app-shell {
+  min-height: 100dvh;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: clip;
+}
+
+.app-shell > main {
+  flex: 1;
+  width: 100%;
 }
 
 body.light-mode {
@@ -277,15 +291,12 @@ body.light-mode .hero-theme-green {
 
 .hero-pattern {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: calc(50% + 17rem);
+  inset: 0;
   pointer-events: none;
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.4rem;
-  opacity: 0.13;
+  opacity: 0.1;
   margin: 0;
   padding: 1rem;
   overflow: hidden;
@@ -318,10 +329,11 @@ body.light-mode .hero-column {
 .hero-sistemas-beta {
   position: absolute;
   left: 50%;
-  top: calc(50% + 11rem);
+  top: auto;
+  bottom: 1.5rem;
   transform: translate(-50%, -50%);
   z-index: 3;
-  padding: 1.15rem 1.8rem;
+  padding: 0.75rem 1rem;
   border: 2px solid var(--hero-border-strong, rgba(121, 255, 142, 0.82));
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   box-shadow: 0 0 32px rgba(0, 0, 0, 0.8);
@@ -329,7 +341,7 @@ body.light-mode .hero-column {
 
 .hero-sistemas-beta span {
   display: block;
-  font-size: clamp(1.35rem, 6vw, 4.3rem);
+  font-size: clamp(1rem, 3.4vw, 2.1rem);
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--hero-main, #b8ff84);
@@ -341,8 +353,19 @@ body.light-mode .hero-column {
   text-align: center;
   position: relative;
   z-index: 5;
-  max-width: 1000px;
-  margin-top: -12rem;
+  width: min(100%, 1000px);
+  margin: 0 auto;
+  padding: 0 0.8rem;
+}
+
+h1,
+h2,
+h3,
+p,
+span,
+a,
+button {
+  overflow-wrap: anywhere;
 }
 
 .speech-bubble {
@@ -443,7 +466,7 @@ body.light-mode .hero-column {
 }
 
 .section-shell {
-  width: min(1050px, 92vw);
+  width: min(1050px, calc(100vw - 1.5rem));
   margin: 0 auto;
   padding: 2.8rem 0 1.2rem;
 }
@@ -661,6 +684,18 @@ body.light-mode .hero-column {
   transition: transform 180ms ease, opacity 180ms ease, filter 180ms ease;
 }
 
+.capture-preview-btn,
+.project-thumb-preview-btn {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
 .captures-grid:hover .capture-item {
   transform: scale(0.95);
   opacity: 0.42;
@@ -672,6 +707,50 @@ body.light-mode .hero-column {
   opacity: 1;
   z-index: 2;
   filter: saturate(1.05);
+}
+
+.media-preview-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  display: grid;
+  place-items: center;
+  z-index: 180;
+  padding: 1rem;
+}
+
+.media-preview-panel {
+  width: min(100%, 980px);
+  background: color-mix(in srgb, var(--bg) 90%, #0b1217 10%);
+  border: 1px solid var(--hero-border-strong, rgba(255, 255, 255, 0.65));
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.media-preview-close {
+  justify-self: end;
+  border: 1px solid var(--hero-border-strong, rgba(255, 255, 255, 0.65));
+  background: color-mix(in srgb, var(--hero-main) 18%, transparent);
+  color: var(--fg);
+  font-family: inherit;
+  padding: 0.4rem 0.65rem;
+  cursor: pointer;
+}
+
+.media-preview-panel img,
+.media-preview-panel video {
+  width: 100%;
+  max-height: min(72vh, 780px);
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--hero-border, rgba(255, 255, 255, 0.25));
+}
+
+.media-preview-panel p {
+  margin: 0;
+  text-align: left;
+  color: var(--muted);
 }
 
 .project-action-wrap {
@@ -709,6 +788,7 @@ body.light-mode .hero-column {
   padding: 1rem;
   display: grid;
   gap: 1rem;
+  overflow: hidden;
 }
 
 .game-header h1 {
@@ -745,6 +825,306 @@ body.light-mode .hero-column {
 .game-info-box p {
   margin: 0;
   text-align: left;
+}
+
+.minigame-layout {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.minigame-header {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.minigame-header h1 {
+  margin: 0;
+  font-size: clamp(1.25rem, 3.2vw, 2.05rem);
+  color: var(--hero-main, #fff);
+}
+
+.minigame-header p {
+  margin: 0;
+  text-align: left;
+}
+
+.minigame-kicker {
+  color: var(--hero-main, #fff);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+.minigame-hud {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.45rem;
+}
+
+.minigame-hud span {
+  border: 1px solid var(--hero-border, rgba(255, 255, 255, 0.24));
+  padding: 0.4rem 0.55rem;
+  background: color-mix(in srgb, var(--hero-main) 10%, transparent);
+}
+
+.minigame-stage {
+  position: relative;
+  width: 100%;
+  min-height: clamp(360px, 58vh, 620px);
+  overflow: hidden;
+  border: 1px solid var(--hero-border-strong, rgba(255, 255, 255, 0.52));
+  background:
+    radial-gradient(circle at 18% 16%, rgba(140, 255, 221, 0.18), transparent 42%),
+    radial-gradient(circle at 84% 20%, rgba(255, 193, 127, 0.14), transparent 37%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.96), rgba(9, 9, 15, 0.92));
+  box-shadow: inset 0 0 48px rgba(0, 0, 0, 0.6);
+}
+
+.minigame-stage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.07) 0,
+    rgba(255, 255, 255, 0.07) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  mix-blend-mode: soft-light;
+  opacity: 0.23;
+}
+
+.minigame-grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.35;
+}
+
+.minigame-stage-idle .minigame-enemy,
+.minigame-stage-idle .minigame-player {
+  filter: blur(0.3px) saturate(0.86);
+}
+
+.minigame-enemy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 18px rgba(125, 255, 215, 0.24);
+}
+
+.minigame-enemy img,
+.minigame-enemy video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  opacity: 0.62;
+  filter: grayscale(0.58) contrast(1.02) saturate(0.8);
+}
+
+.minigame-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.minigame-player img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--hero-main) 45%, #fff 55%));
+}
+
+.minigame-projectile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(180deg, #fff, var(--hero-main, #86f8bd));
+  box-shadow: 0 0 12px var(--hero-main, #86f8bd);
+  z-index: 3;
+}
+
+.minigame-explosion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, rgba(255, 224, 145, 0.8) 35%, rgba(255, 224, 145, 0) 75%);
+  animation: minigame-burst 320ms ease-out forwards;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  pointer-events: none;
+  z-index: 5;
+}
+
+@keyframes minigame-burst {
+  0% {
+    transform: translate(-50%, -50%) scale(0.55);
+    opacity: 0.98;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.minigame-overlay-panel {
+  position: absolute;
+  inset: auto 0 0 0;
+  margin: auto;
+  width: min(92%, 500px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.72);
+  border: 1px solid var(--hero-border-strong, rgba(255, 255, 255, 0.65));
+  padding: 1rem;
+  display: grid;
+  gap: 0.6rem;
+  z-index: 7;
+}
+
+.minigame-overlay-panel h2,
+.minigame-overlay-panel p {
+  margin: 0;
+  text-align: left;
+}
+
+.minigame-mobile-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.minigame-mobile-controls button {
+  border: 1px solid var(--hero-border-strong, rgba(255, 255, 255, 0.52));
+  background: color-mix(in srgb, var(--hero-main) 14%, transparent);
+  color: var(--fg);
+  font-family: inherit;
+  padding: 0.52rem;
+}
+
+.minigame-mobile-controls .minigame-shoot-btn {
+  background: color-mix(in srgb, var(--hero-main) 40%, transparent);
+}
+
+.minigame-gallery-wrap {
+  display: grid;
+  gap: 0.75rem;
+  border-top: 1px solid var(--hero-border, rgba(255, 255, 255, 0.22));
+  margin-top: 0.8rem;
+  padding-top: 0.85rem;
+  animation: minigame-fade-in 440ms ease;
+}
+
+.minigame-gallery-wrap h2,
+.minigame-gallery-wrap p {
+  margin: 0;
+  text-align: left;
+}
+
+.minigame-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.55rem;
+  align-items: stretch;
+}
+
+.minigame-gallery-card {
+  border: 1px solid var(--hero-border, rgba(255, 255, 255, 0.3));
+  background: color-mix(in srgb, var(--fg) 6%, transparent);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.minigame-gallery-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--hero-main, #fff);
+}
+
+.minigame-gallery-card img,
+.minigame-gallery-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  filter: saturate(1.02);
+}
+
+.minigame-preview-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  display: grid;
+  place-items: center;
+  z-index: 150;
+  padding: 1rem;
+}
+
+.minigame-preview-panel {
+  width: min(100%, 980px);
+  background: color-mix(in srgb, var(--bg) 90%, #0b1217 10%);
+  border: 1px solid var(--hero-border-strong, rgba(255, 255, 255, 0.65));
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.minigame-preview-close {
+  justify-self: end;
+  border: 1px solid var(--hero-border-strong, rgba(255, 255, 255, 0.65));
+  background: color-mix(in srgb, var(--hero-main) 18%, transparent);
+  color: var(--fg);
+  font-family: inherit;
+  padding: 0.4rem 0.65rem;
+  cursor: pointer;
+}
+
+.minigame-preview-panel img,
+.minigame-preview-panel video {
+  width: 100%;
+  max-height: min(72vh, 780px);
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--hero-border, rgba(255, 255, 255, 0.25));
+}
+
+.minigame-preview-panel p {
+  margin: 0;
+  text-align: left;
+  color: var(--muted);
+}
+
+@keyframes minigame-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .contact-shell {
@@ -802,15 +1182,10 @@ body.light-mode .hero-column {
   .hero-pattern {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.55rem;
-    height: calc(50% + 14rem);
   }
 
   .hero-column {
     font-size: clamp(0.22rem, 1vw, 0.38rem);
-  }
-
-  .hero-content {
-    margin-top: -14rem;
   }
 
   .section-shell {
@@ -829,6 +1204,15 @@ body.light-mode .hero-column {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .minigame-hud {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .minigame-gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.65rem;
+  }
+
   .game-grid-info {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -842,15 +1226,10 @@ body.light-mode .hero-column {
   .hero-pattern {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.65rem;
-    height: calc(50% + 17rem);
   }
 
   .hero-column {
     font-size: clamp(0.28rem, 0.78vw, 0.58rem);
-  }
-
-  .hero-content {
-    margin-top: -16rem;
   }
 
   .cards-grid {
@@ -863,5 +1242,317 @@ body.light-mode .hero-column {
 
   .captures-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .minigame-stage {
+    min-height: clamp(460px, 64vh, 700px);
+  }
+
+  .minigame-mobile-controls {
+    max-width: 460px;
+  }
+
+  .minigame-gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+.achievement-dropup {
+  position: fixed;
+  left: 0.9rem;
+  bottom: 0.9rem;
+  z-index: 260;
+  display: grid;
+  justify-items: start;
+  gap: 0.55rem;
+  max-width: calc(100vw - 1.8rem);
+}
+
+.achievement-dropup-menu {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.55rem;
+  border: 1px solid var(--hero-border-strong, rgba(255, 255, 255, 0.55));
+  background: color-mix(in srgb, var(--bg) 88%, #101720 12%);
+  border-radius: 0.4rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  max-width: min(90vw, 280px);
+  max-height: min(62vh, 420px);
+  overflow: auto;
+}
+
+.achievement-dropup-trigger,
+.achievement-item {
+  border: 1px solid var(--hero-border-strong, rgba(255, 255, 255, 0.5));
+  background: color-mix(in srgb, var(--hero-main) 12%, transparent);
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  width: 64px;
+  height: 64px;
+  border-radius: 0.35rem;
+  overflow: hidden;
+  transition: transform 170ms ease, border-color 170ms ease;
+}
+
+.achievement-dropup-trigger:hover,
+.achievement-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--hero-main, #fff);
+}
+
+.achievement-dropup-trigger img,
+.achievement-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.achievement-item-locked {
+  filter: grayscale(0.95);
+  opacity: 0.82;
+}
+
+.achievement-item-selected {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--hero-main) 70%, #fff 30%);
+}
+
+.achievement-rainbow-toggle {
+  border: 1px solid var(--hero-border-strong, rgba(255, 255, 255, 0.55));
+  background: color-mix(in srgb, var(--hero-main) 22%, transparent);
+  color: var(--fg);
+  font-family: inherit;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.72rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+
+.achievement-rainbow-toggle:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.achievement-rainbow-message {
+  margin: 0;
+  font-size: 0.65rem;
+  line-height: 1.3;
+  color: var(--muted);
+}
+
+.achievement-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 320;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+}
+
+.achievement-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(calc(100vw - 2rem), 380px);
+  max-height: calc(100vh - 2rem);
+  border: 1px solid var(--hero-border-strong, rgba(255, 255, 255, 0.6));
+  background: color-mix(in srgb, var(--bg) 90%, #0d1a28 10%);
+  padding: 0.8rem;
+  display: grid;
+  gap: 0.55rem;
+  overflow-y: auto;
+}
+
+.achievement-modal h3,
+.achievement-modal p {
+  margin: 0;
+  text-align: left;
+}
+
+.achievement-modal img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+  border: 1px solid var(--hero-border, rgba(255, 255, 255, 0.3));
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.achievement-modal-close {
+  justify-self: end;
+  border: 1px solid var(--hero-border-strong, rgba(255, 255, 255, 0.55));
+  background: color-mix(in srgb, var(--hero-main) 16%, transparent);
+  color: var(--fg);
+  font-family: inherit;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+}
+
+.achievement-notification-stack {
+  position: fixed;
+  left: 0.9rem;
+  bottom: 6.2rem;
+  z-index: 270;
+  display: grid;
+  gap: 0.45rem;
+  max-width: min(92vw, 320px);
+}
+
+.achievement-notification-card {
+  border: 1px solid var(--hero-border-strong, rgba(255, 255, 255, 0.55));
+  background: color-mix(in srgb, var(--bg) 86%, #0f1a22 14%);
+  padding: 0.45rem;
+  min-width: min(88vw, 250px);
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 0.45rem;
+  align-items: center;
+  animation: achievement-pop 420ms ease, achievement-vibrate 130ms linear 3 420ms;
+}
+
+.achievement-notification-card img {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border: 1px solid var(--hero-border, rgba(255, 255, 255, 0.3));
+}
+
+.achievement-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.achievement-image-wrap img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.achievement-image-error {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.58rem;
+  line-height: 1.2;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .achievement-dropup {
+    left: 0.6rem;
+    bottom: 0.6rem;
+  }
+
+  .achievement-dropup-trigger,
+  .achievement-item {
+    width: 56px;
+    height: 56px;
+  }
+
+  .achievement-notification-stack {
+    left: 0.6rem;
+    bottom: 5.6rem;
+  }
+}
+
+.achievement-notification-kicker,
+.achievement-notification-title {
+  margin: 0;
+  text-align: left;
+}
+
+.achievement-notification-kicker {
+  font-size: 0.67rem;
+  color: var(--muted);
+}
+
+.achievement-notification-title {
+  font-size: 0.8rem;
+  color: var(--hero-main, #fff);
+}
+
+@keyframes achievement-pop {
+  0% {
+    transform: translateY(22px) scale(0.92);
+    opacity: 0;
+  }
+
+  70% {
+    transform: translateY(-4px) scale(1.03);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes achievement-vibrate {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-2px);
+  }
+
+  50% {
+    transform: translateX(2px);
+  }
+
+  75% {
+    transform: translateX(-2px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+body.rainbow-mode {
+  animation: rainbow-bg 1.8s linear infinite;
+}
+
+body.rainbow-mode .app-shell {
+  animation: rainbow-hue 2s linear infinite;
+}
+
+@keyframes rainbow-hue {
+  0% {
+    filter: hue-rotate(0deg) saturate(1.2);
+  }
+
+  100% {
+    filter: hue-rotate(360deg) saturate(1.25);
+  }
+}
+
+@keyframes rainbow-bg {
+  0% {
+    background-color: rgba(255, 0, 0, 0.08);
+  }
+
+  20% {
+    background-color: rgba(255, 154, 0, 0.08);
+  }
+
+  40% {
+    background-color: rgba(208, 255, 0, 0.08);
+  }
+
+  60% {
+    background-color: rgba(0, 255, 201, 0.08);
+  }
+
+  80% {
+    background-color: rgba(0, 123, 255, 0.08);
+  }
+
+  100% {
+    background-color: rgba(175, 0, 255, 0.08);
   }
 }

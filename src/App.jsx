@@ -5,6 +5,7 @@ import { useHeroPalette } from './hooks/useHeroPalette'
 import { useScrollFlag } from './hooks/useScrollFlag'
 import { useThemeMode } from './hooks/useThemeMode'
 import { NAV_LINKS, PROFILE, PROJECT_CATEGORIES, PROJECTS, SERVICES, HERO_PATTERN } from './data/siteData'
+import { AchievementSystem } from './components/achievements/AchievementSystem'
 import { scrollToSectionWithOffset, scrollTopHard } from './utils/navigation'
 import './index.css'
 
@@ -145,6 +146,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
+      <AchievementSystem />
     </MainLayout>
   )
 }
