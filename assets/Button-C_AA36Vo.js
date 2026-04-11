@@ -1,1 +1,0 @@
-import{j as u}from"./index-A2dwzJrj.js";function m({bg:t="black",textColor:e="white",borderColor:n="white",shadow:o="white",className:b="",type:r="button",onClick:s,children:i}){return u.jsx("button",{type:r,onClick:s,className:`themed-button ${b}`.trim(),style:{"--btn-bg":t,"--btn-text":e,"--btn-border":n,"--btn-shadow":o},children:i})}export{m as B};
