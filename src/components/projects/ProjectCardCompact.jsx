@@ -2,11 +2,13 @@ import { useState } from 'react'
 import { Button } from '../ui/Button'
 import { MediaPreviewModal } from '../ui/MediaPreviewModal'
 import { resolvePublicAssetPath } from '../../utils/assetPaths'
+import { useI18n } from '../../context/I18nContext'
 
 const FALLBACK_IMAGE = resolvePublicAssetPath('/imgs/Minijuego/minijuego1.jpg')
 const getMediaKind = (src) => (/(\.mp4|\.webm|\.ogg|\.mov)(\?.*)?$/i.test(src) ? 'video' : 'image')
 
 export function ProjectCardCompact({ project, isLightMode, heroAccentColor, onOpenProject }) {
+  const { t, site } = useI18n()
   const [preview, setPreview] = useState(null)
   const homeDescription = project.shortDescription || project.description || ''
   const thumbSrc = project.captures[0]
@@ -27,7 +29,7 @@ export function ProjectCardCompact({ project, isLightMode, heroAccentColor, onOp
               fallbackSrc: FALLBACK_IMAGE,
             })
           }
-          aria-label={`Abrir portada de ${project.name}`}
+          aria-label={t('ui.projects.openCover', { name: project.name }, `Abrir portada de ${project.name}`)}
         >
           {getMediaKind(thumbSrc) === 'video' ? (
             <video className="project-thumb" src={thumbSrc} muted loop playsInline preload="metadata" />
@@ -39,7 +41,7 @@ export function ProjectCardCompact({ project, isLightMode, heroAccentColor, onOp
         <div className="project-tags">
           {project.categories.map((category) => (
             <span key={`${project.id}-${category}`} className="project-tag">
-              {category}
+              {site.categoryLabels?.[category] || category}
             </span>
           ))}
         </div>
@@ -51,7 +53,7 @@ export function ProjectCardCompact({ project, isLightMode, heroAccentColor, onOp
             shadow={heroAccentColor}
             onClick={() => onOpenProject(project.id)}
           >
-            Ver proyecto
+            {t('ui.projects.viewProject')}
           </Button>
         </div>
 

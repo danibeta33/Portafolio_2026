@@ -157,6 +157,13 @@ a {
   user-select: none;
 }
 
+.switch-cluster {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
 .mode-switch input {
   position: absolute;
   opacity: 0;
@@ -483,6 +490,44 @@ button {
   text-align: center;
   color: var(--muted);
   line-height: 1.6;
+}
+
+.profile-location {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.profile-text {
+  max-width: 850px;
+  margin: 0 auto;
+  display: grid;
+  gap: 0.95rem;
+}
+
+.profile-text p {
+  text-align: left;
+  margin: 0;
+}
+
+.profile-quote {
+  max-width: 850px;
+  margin: 1.4rem auto 0;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--hero-main, var(--fg));
+  background: color-mix(in srgb, var(--fg) 4%, transparent);
+}
+
+.profile-quote p {
+  margin: 0;
+  text-align: left;
+}
+
+.profile-quote cite {
+  display: block;
+  margin-top: 0.65rem;
+  text-align: right;
+  color: var(--muted);
+  font-style: normal;
 }
 
 .cards-grid {
@@ -825,6 +870,14 @@ button {
 .game-info-box p {
   margin: 0;
   text-align: left;
+}
+
+.roles-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.2rem;
+  color: var(--muted);
 }
 
 .minigame-layout {

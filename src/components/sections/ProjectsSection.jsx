@@ -1,6 +1,7 @@
 import { CategoryFilter } from '../projects/CategoryFilter'
 import { ProjectCardCompact } from '../projects/ProjectCardCompact'
 import { ProjectCardDetailed } from '../projects/ProjectCardDetailed'
+import { useI18n } from '../../context/I18nContext'
 
 export function ProjectsSection({
   currentHeroTheme,
@@ -12,12 +13,13 @@ export function ProjectsSection({
   onSelectCategory,
   onOpenProject,
 }) {
+  const { t } = useI18n()
   const isDetailedProjectsView = selectedCategory !== 'Todos'
 
   return (
     <section id="proyectos" className={`section-shell projects-shell hero-theme-${currentHeroTheme}`}>
-      <h2>{'<Proyectos />'}</h2>
-      <p>Proyectos filtrables por categoria para mostrar proyectos con imagen, descripcion y etiquetas.</p>
+      <h2>{t('ui.sections.projects')}</h2>
+      <p>{t('ui.projects.intro')}</p>
 
       <CategoryFilter
         categoriesWithCounts={categoriesWithCounts}

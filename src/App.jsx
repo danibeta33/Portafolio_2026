@@ -1,10 +1,11 @@
 import { lazy, Suspense, useMemo, useState } from 'react'
 import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { MainLayout } from './layouts/MainLayout'
+import { useI18n } from './context/I18nContext'
 import { useHeroPalette } from './hooks/useHeroPalette'
 import { useScrollFlag } from './hooks/useScrollFlag'
 import { useThemeMode } from './hooks/useThemeMode'
-import { NAV_LINKS, PROFILE, PROJECT_CATEGORIES, PROJECTS, SERVICES, HERO_PATTERN } from './data/siteData'
+import { PROFILE, PROJECT_CATEGORIES, PROJECTS, HERO_PATTERN } from './data/siteData'
 import { AchievementSystem } from './components/achievements/AchievementSystem'
 import { scrollToSectionWithOffset, scrollTopHard } from './utils/navigation'
 import './index.css'
@@ -14,11 +15,13 @@ const GamePage = lazy(() => import('./pages/GamePage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 function LoadingScreen() {
+  const { t } = useI18n()
+
   return (
     <main className="game-page">
       <section className="section-shell game-shell">
         <article className="game-article">
-          <h1>Cargando...</h1>
+          <h1>{t('ui.app.loading', {}, 'Cargando...')}</h1>
         </article>
       </section>
     </main>
@@ -37,13 +40,36 @@ function GameRoute({ projects, profileName, currentHeroTheme, onBack }) {
 }
 
 function App() {
+  const { site, isEnglish, setLocale } = useI18n()
   const navigate = useNavigate()
   const location = useLocation()
   const scrolled = useScrollFlag(80)
   const { isLightMode, setIsLightMode } = useThemeMode()
   const { currentHeroTheme, heroAccentColor, heroAccentDark, isNamePressed, cycleTheme } = useHeroPalette(isLightMode)
-  const [selectedCategory, setSelectedCategory] = useState('Todos')
+  const [selectedCategory, setSelectedCategory] = useState(PROJECT_CATEGORIES[0])
   const year = useMemo(() => new Date().getFullYear(), [])
+
+  const profile = useMemo(
+    () => ({
+      ...PROFILE,
+      ...(site.profile || {}),
+      roles: site.profile?.roles || PROFILE.roles,
+    }),
+    [site.profile],
+  )
+
+  const services = useMemo(() => site.services || [], [site.services])
+  const navLinks = useMemo(() => site.navLinks || [], [site.navLinks])
+  const categoryLabels = useMemo(() => site.categoryLabels || {}, [site.categoryLabels])
+
+  const localizedProjects = useMemo(() => {
+    const textById = site.projects || {}
+    return PROJECTS.map((project) => ({
+      ...project,
+      ...(textById[String(project.id)] || {}),
+      categories: project.categories,
+    }))
+  }, [site.projects])
 
   const heroColumns = useMemo(() => {
     const filledColumn = Array.from({ length: 4 }, () => HERO_PATTERN).join('\n')
@@ -51,20 +77,21 @@ function App() {
   }, [])
 
   const filteredProjects = useMemo(() => {
-    if (selectedCategory === 'Todos') return PROJECTS
-    return PROJECTS.filter((project) => project.categories.includes(selectedCategory))
-  }, [selectedCategory])
+    if (selectedCategory === PROJECT_CATEGORIES[0]) return localizedProjects
+    return localizedProjects.filter((project) => project.categories.includes(selectedCategory))
+  }, [localizedProjects, selectedCategory])
 
   const categoriesWithCounts = useMemo(
     () =>
       PROJECT_CATEGORIES.map((category) => ({
         category,
+        label: categoryLabels[category] || category,
         count:
-          category === 'Todos'
-            ? PROJECTS.length
-            : PROJECTS.filter((project) => project.categories.includes(category)).length,
+          category === PROJECT_CATEGORIES[0]
+            ? localizedProjects.length
+            : localizedProjects.filter((project) => project.categories.includes(category)).length,
       })),
-    [],
+    [categoryLabels, localizedProjects],
   )
 
   const handleHomeNavigation = (event) => {
@@ -99,14 +126,16 @@ function App() {
 
   return (
     <MainLayout
-      links={NAV_LINKS}
+      links={navLinks}
       scrolled={scrolled}
       isLightMode={isLightMode}
       onToggleMode={setIsLightMode}
+      isEnglish={isEnglish}
+      onToggleLocale={(checked) => setLocale(checked ? 'en' : 'es')}
       onLogoClick={handleHomeNavigation}
       onNavClick={handleSectionNavigation}
       year={year}
-      profileName={PROFILE.name}
+      profileName={profile.name}
       showLinks={showLinks}
     >
       <Suspense fallback={<LoadingScreen />}>
@@ -115,8 +144,8 @@ function App() {
             path="/"
             element={
               <HomePage
-                profile={PROFILE}
-                services={SERVICES}
+                profile={profile}
+                services={services}
                 projects={filteredProjects}
                 heroColumns={heroColumns}
                 currentHeroTheme={currentHeroTheme}
@@ -136,8 +165,8 @@ function App() {
             path="/game/:id"
             element={
               <GameRoute
-                projects={PROJECTS}
-                profileName={PROFILE.name}
+                projects={localizedProjects}
+                profileName={profile.name}
                 currentHeroTheme={currentHeroTheme}
                 onBack={handleHomeNavigation}
               />

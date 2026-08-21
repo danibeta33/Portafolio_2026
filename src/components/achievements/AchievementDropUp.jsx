@@ -1,6 +1,7 @@
 import { AchievementItem } from './AchievementItem'
 import { AchievementImage } from './AchievementImage'
 import { resolvePublicAssetPath } from '../../utils/assetPaths'
+import { useI18n } from '../../context/I18nContext'
 
 const LOGRO_TRIGGER_FALLBACK = resolvePublicAssetPath('/imgs/Logro5Bloq.png')
 
@@ -15,6 +16,7 @@ export function AchievementDropUp({
   isRainbowUnlocked,
   rainbowMessage,
 }) {
+  const { t } = useI18n()
   const trigger = achievements.find((item) => item.id === 5)
 
   return (
@@ -35,13 +37,13 @@ export function AchievementDropUp({
             onClick={onToggleRainbow}
             disabled={!isRainbowUnlocked}
           >
-            {isRainbowManual ? 'Desactivar Rainbow' : 'Activar Rainbow'}
+            {isRainbowManual ? t('ui.achievements.toggleOff') : t('ui.achievements.toggleOn')}
           </button>
           {rainbowMessage && <p className="achievement-rainbow-message">{rainbowMessage}</p>}
         </div>
       )}
 
-      <button type="button" className="achievement-dropup-trigger" onClick={onToggle} aria-label="Abrir panel de logros">
+      <button type="button" className="achievement-dropup-trigger" onClick={onToggle} aria-label={t('ui.achievements.openPanel')}>
         <AchievementImage
           src={
             trigger
@@ -52,7 +54,7 @@ export function AchievementDropUp({
                 : trigger.lockedImage
               : LOGRO_TRIGGER_FALLBACK
           }
-          alt="Abrir logros"
+          alt={t('ui.achievements.openAchievements')}
           loading="eager"
           fallbackSrc={LOGRO_TRIGGER_FALLBACK}
         />

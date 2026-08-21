@@ -1,3 +1,6 @@
+import { useI18n } from '../../context/I18nContext'
+
 export function Footer({ year, name }) {
-  return <footer className="site-footer">{`© ${year} ${name}. All rights reserved.`}</footer>
+  const { t } = useI18n()
+  return <footer className="site-footer">{`© ${year} ${name}. ${t('ui.footer.rights')}`}</footer>
 }

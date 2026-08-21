@@ -1,0 +1,230 @@
+{
+  "ui": {
+    "navbar": {
+      "themeAria": "Cambiar modo claro u oscuro",
+      "themeLight": "Light",
+      "themeDark": "Dark",
+      "languageAria": "Cambiar idioma",
+      "languageEs": "ES",
+      "languageEn": "EN"
+    },
+    "hero": {
+      "systemsBeta": "SISTEMAS BETA",
+      "bubble": "Presioname para cambiar el color",
+      "subtitle": "Portafolio profesional creativo"
+    },
+    "sections": {
+      "profile": "<Perfil />",
+      "services": "<Servicios />",
+      "projects": "<Proyectos />",
+      "contact": "<Contacto />"
+    },
+    "projects": {
+      "intro": "Estos son algunos de los proyectos en los que he trabajado y continuare desarrollando. Te invito a explorarlos y experimentar cada una de estas propuestas.",
+      "categoryAria": "Categorias de bloques",
+      "genre": "Genero:",
+      "captures": "Capturas",
+      "viewProject": "Ver proyecto",
+      "itchUnavailable": "Itch no disponible",
+      "trailer": "Trailer",
+      "trailerUnavailable": "Trailer no disponible"
+    },
+    "game": {
+      "back": "Volver a Inicio",
+      "roles": "Roles",
+      "expectations": "Expectativas",
+      "expectationsFallback": "Sin expectativas registradas por ahora.",
+      "learnings": "Aprendizajes",
+      "learningsFallback": "Sin aprendizajes registrados por ahora.",
+      "tools": "Herramientas y nivel de manejo",
+      "genre": "Genero",
+      "categories": "Categorias",
+      "itchLabel": "Ir a Itch",
+      "itchUnavailable": "Itch no disponible",
+      "viewTrailer": "Ver Trailer",
+      "trailerUnavailable": "Trailer no disponible",
+      "captures": "Capturas",
+      "arcadeKicker": "Arcade Showcase",
+      "score": "Puntaje",
+      "targets": "Objetivos",
+      "accuracy": "Precision",
+      "levelCompleted": "Nivel Completado",
+      "memoryInvasion": "Invasion de Memorias",
+      "galleryEnabled": "Todos los archivos fueron destruidos. Se habilito la galeria final.",
+      "controlsHint": "Mueve la nave con A/D o flechas, y dispara con espacio.",
+      "playAgain": "Jugar de nuevo",
+      "startGame": "Iniciar partida",
+      "touchControlsAria": "Controles tactiles",
+      "left": "Izquierda",
+      "shoot": "Disparar",
+      "right": "Derecha",
+      "galleryAria": "Galeria final de capturas y videos",
+      "galleryUnlocked": "Galeria final desbloqueada",
+      "galleryHint": "Has destruido todos los objetivos. Haz clic sobre cualquier archivo para verlo en previsualizacion grande.",
+      "openPreview": "Abrir previsualizacion de {{filename}}",
+      "previewAria": "Previsualizacion",
+      "closePreview": "Cerrar previsualizacion",
+      "close": "Cerrar",
+      "playerAlt": "Nave"
+    },
+    "contact": {
+      "description": "Disponible para colaboraciones, proyectos y oportunidades."
+    },
+    "footer": {
+      "rights": "All rights reserved."
+    },
+    "notFound": {
+      "title": "Proyecto no encontrado",
+      "description": "La ruta no coincide con un proyecto registrado.",
+      "back": "Volver a Inicio"
+    },
+    "achievements": {
+      "defs": [
+        { "id": 1, "name": "Explorador Novato", "description": "Explora el Inicio al Fin" },
+        { "id": 2, "name": "HaterClick?", "description": "Esos 200CPS es de Tryhards" },
+        { "id": 3, "name": "TeGusto?", "description": "Lo viste todo?" },
+        { "id": 4, "name": "Boomer en accion?", "description": "Precision al 100 a pesar de los anos" },
+        { "id": 5, "name": "Platinador De Webs", "description": "Gracias por apoyar esta pagina" }
+      ],
+      "toggleOn": "Activar Rainbow",
+      "toggleOff": "Desactivar Rainbow",
+      "lockedMessage": "Completa todos los logros para desbloquear esta funcion",
+      "openPanel": "Abrir panel de logros",
+      "openAchievements": "Abrir logros",
+      "unlockKicker": "Logro Desbloqueado",
+      "close": "Cerrar",
+      "animatedAlt": "{{name}} animado",
+      "statusUnlocked": "desbloqueado",
+      "statusLocked": "bloqueado",
+      "assetUnavailable": "Asset unavailable"
+    }
+  },
+  "site": {
+    "navLinks": [
+      { "label": "Inicio", "href": "#inicio" },
+      { "label": "Perfil", "href": "#perfil" },
+      { "label": "Servicios", "href": "#servicios" },
+      { "label": "Proyectos", "href": "#proyectos" },
+      { "label": "Contacto", "href": "#contacto" }
+    ],
+    "profile": {
+      "location": "Colombia",
+      "bio": [
+        "Soy estudiante de Ingenieria en Diseno de Entretenimiento Digital, con enfoque en desarrollo de videojuegos, arte para esta industria y creacion de experiencias digitales en VR/AR.",
+        "He participado en la creacion de multiples experiencias interactivas y en diversos eventos de desarrollo (game jams), donde, junto a mi equipo OP Studios, he adquirido experiencia en procesos colaborativos y produccion de videojuegos.",
+        "Me especializo en la construccion de identidades visuales para videojuegos y en su implementacion dentro del motor Unity, convirtiendo conceptos en experiencias funcionales. He trabajado de manera experimental en el rol de Artista Tecnico, con el objetivo de seguir fortaleciendo mis habilidades y profundizar en la integracion entre arte, diseno y tecnologia dentro de motores de desarrollo."
+      ],
+      "quote": "\"En mi tarjeta de presentacion, soy presidente de una corporacion. En mi mente, soy desarrollador de videojuegos. Pero en mi corazon, soy un jugador.\"",
+      "quoteAuthor": "Satoru Iwata",
+      "roles": ["Tecnical Artist", "Desarrollador de videojuegos", "Editor de videos", "Ilustrador"]
+    },
+    "services": [
+      {
+        "title": "Arte Tecnico en Videojuegos",
+        "description": "Desarrollo de flujos visuales optimizados, integracion artistica y soporte a equipos de arte para materializar la vision del proyecto."
+      },
+      {
+        "title": "Desarrollo de Gameplay",
+        "description": "Diseno e implementacion de mecanicas enfocadas en experiencias divertidas, junto con diseno de niveles."
+      },
+      {
+        "title": "Edicion de Video",
+        "description": "Montaje narrativo, ritmo visual y postproduccion para piezas promocionales y contenido digital."
+      },
+      {
+        "title": "Ilustracion",
+        "description": "Concept art e ilustracion digital (pixel art y vectorial) orientados a identidad visual, storytelling y presentacion de proyectos."
+      }
+    ],
+    "categoryLabels": {
+      "Todos": "Todos",
+      "Proyectos Universitarios": "Proyectos Universitarios",
+      "Proyectos Personales": "Proyectos Personales",
+      "Ganadores": "Ganadores",
+      "Proyectos de Formacion": "Proyectos de Formacion"
+    },
+    "projects": {
+      "1": {
+        "name": "Perfect Tourist",
+        "shortDescription": "Con lo que tengas a la mano, deberas superar desafios, rebuscarte la plata y ahorrar juicioso para lograr el paseo de tu vida.",
+        "longDescription": "Juego desarrollado para la INTERACTION: GAME JAM DE VERANO, ganadores del primer puesto.\n\nEs un juego de retos rapidos donde tendras que improvisar porque... se te olvidaron las vacaciones. Con lo que tengas a la mano, deberas superar desafios, rebuscarte la plata y ahorrar juicioso para lograr el paseo de tu vida, demostrando que si se puede vacacionar bueno, bonito y barato.\nSumergite en ambientes de playa, sol y mar, con un flow bien vacacional, y preparate para convertir cualquier situacion en la oportunidad perfecta para viajar.",
+        "genre": "Rompecabezas, Accion",
+        "roles": ["Desarrollado con OP Studios", "Artista Tecnico", "Desarrollador", "Game Designer"],
+        "learnings": "Desarrollo de herramientas internas (pipeline tools) orientadas a la optimizacion de flujos de trabajo. Creacion de contenido escalable, implementacion de sistemas de rigging y animaciones reutilizables. Trabajo colaborativo con el area creativa para fortalecer la produccion y coherencia del contenido."
+      },
+      "2": {
+        "name": "MasKeeper",
+        "shortDescription": "En MasKeeper, un golem ancestral encargado de proteger las mascaras que dan forma a la realidad.",
+        "longDescription": "Juego desarrollado para la GLOBAL GAME JAM 2026, ganadores del segundo puesto sede Antioquia.\nPresentado con su propio stand en la Feria de la Animacion 2026.\nEn MasKeeper, tomaras el rol del Mask Keeper, un golem ancestral encargado de proteger las mascaras que dan forma a la realidad.\nTras un largo letargo, despiertas para descubrir que el mundo ha sido fragmentado en multiples capas, luego de que casi todas las mascaras fueran robadas.",
+        "genre": "Puzzle, Rompecabezas",
+        "roles": ["Desarrollado con OP Studios", "Artista 2D / Disenador Visual", "Level Designer", "Game Designer"],
+        "learnings": "Participacion en el diseno de personajes, entornos y direccion artistica general del videojuego, incluyendo efectos visuales como particulas. Desarrollo de un sistema visual modular y adaptable que permitio la creacion rapida de niveles dentro de un tiempo de produccion reducido. Enfoque en diseno de niveles y optimizacion de procesos creativos."
+      },
+      "3": {
+        "name": "Klondike Miner",
+        "shortDescription": "Proyecto enfocado en el aprendizaje del diseno de videojuegos, combinando elementos del genero roguelite con mecanicas inspiradas en el juego de mesa Klondike.",
+        "longDescription": "Proyecto enfocado en el aprendizaje del diseno de videojuegos, combinando elementos del genero roguelite con mecanicas inspiradas en el juego de mesa Klondike.\n\nPreparate para lanzar los dados y adentrarte en una experiencia donde el azar y la estrategia se combinan. Explora una mina ambientada en un casino lleno de materiales misteriosos, utilizando dados magicos que determinan tu progreso en cada partida.",
+        "genre": "Roguelite, Dice",
+        "roles": ["Pixel Artist", "Game Designer", "Desarrollador"],
+        "learnings": "Desarrollo completo del apartado visual en pixel art, enfocado en construir una identidad coherente con la tematica minera y roguelite. Exploracion de sistemas de progresion, repetibilidad y diseno de mecanicas basadas en el azar."
+      },
+      "4": {
+        "name": "The White Square Simulator: Clicker",
+        "shortDescription": "Experiencia clicker disenada para generar una progresion constante y satisfactoria mediante sistemas matematicos precisos.",
+        "longDescription": "Experiencia clicker disenada para generar una progresion constante y satisfactoria mediante sistemas matematicos precisos. El jugador asume el rol de gerente de una tienda, optimizando procesos, gestionando pedidos y expandiendo su negocio.",
+        "genre": "Clicker",
+        "roles": ["Desarrollador", "Game Designer", "UI/UX Designer", "Artista"],
+        "learnings": "Desarrollo integral del proyecto de forma individual, abarcando arte y programacion. Enfoque en el balance de sistemas, diseno de progresion, economia del juego y curvas de dificultad. Exploracion de mecanicas de optimizacion y retencion del jugador."
+      },
+      "5": {
+        "name": "Las Sombras de la Mente",
+        "shortDescription": "Videojuego de terror psicologico y puzzles en 2D con perspectiva top-down ambientado en la ciudad de Amarys.",
+        "longDescription": "Videojuego de terror psicologico y puzzles en 2D con perspectiva top-down. Ambientado en la ciudad de Amarys, donde un virus transforma a personas con trastornos mentales en criaturas hostiles. El jugador explora un hospital mientras enfrenta desafios narrativos y cognitivos.",
+        "genre": "Puzzle, Terror",
+        "roles": ["Artista 2D", "Disenador de Juego", "Disenador Narrativo"],
+        "learnings": "Primer proyecto de desarrollo de videojuegos, enfocado en la experimentacion con herramientas, trabajo en equipo y construccion de una experiencia completa. Participacion en la creacion artistica y conceptual del juego."
+      },
+      "6": {
+        "name": "Desparcha 2-3-4",
+        "shortDescription": "Experiencia multijugador local para 2 a 4 jugadores que rescata juegos tradicionales colombianos como canicas, la lleva, carrera de sacos y tejo.",
+        "longDescription": "Experiencia multijugador local para 2 a 4 jugadores que rescata juegos tradicionales colombianos como canicas, la lleva, carrera de sacos y tejo. Cada minijuego propone dinamicas rapidas que combinan habilidad, reflejos y estrategia, integrando elementos culturales en su identidad visual.\nDesarrollado por The Lost Kids Studio x OP Studios, fue reconocido en el DEX Showcase 2025-02 con los premios a Creatividad en Gameplay y Mejor Videojuego del Semestre.",
+        "genre": "Puzzle, Minijuegos",
+        "roles": ["Artista 2D (Vectorial)", "Game Designer", "Disenador de Mecanicas", "Disenador de UI"],
+        "learnings": "Desarrollo de un producto con enfoque en calidad y coherencia cultural. Encargado del diseno visual completo en formato vectorial (personajes, iconos, escenarios) y del diseno de jugabilidad de los minijuegos. Integracion de estetica colombiana con mecanicas claras y accesibles para multijugador local."
+      },
+      "7": {
+        "name": "Canal de Edicion de Video",
+        "shortDescription": "Canal que reune proyectos de edicion de video en ambitos educativo, personal y profesional, mostrando evolucion tecnica y creativa.",
+        "longDescription": "Este canal reune una variedad de proyectos que reflejan mi experiencia en la edicion de video en distintos ambitos: educativo, personal y profesional. A lo largo del tiempo, he desarrollado mis habilidades de manera constante, explorando multiples formatos y estilos para mejorar la calidad de cada resultado.\nAqui se presentan tanto productos finales como procesos de edicion, lo que permite evidenciar mi evolucion y el enfoque creativo detras de cada proyecto. Ademas, he aprendido a adaptarme a diferentes herramientas, incluso bajo limitaciones tecnicas (versiones o planes), optimizando sus recursos para lograr resultados solidos y funcionales.",
+        "genre": "Videos",
+        "roles": ["Editor de Video", "Disenador Audiovisual", "Creador de Contenido"],
+        "tools": [
+          "Adobe Premiere Pro - Nivel medio (en constante aprendizaje)",
+          "Camtasia - Nivel alto",
+          "CapCut - Nivel alto",
+          "Vegas Pro - Nivel medio",
+          "Adobe After Effects - Nivel basico (en aprendizaje)"
+        ],
+        "learnings": "Desarrollo de narrativa audiovisual, manejo del ritmo visual, adaptacion a diferentes formatos de contenido y optimizacion de recursos tecnicos en herramientas de edicion."
+      },
+      "8": {
+        "name": "Plataforma Web de Orientacion Vocacional",
+        "shortDescription": "Plataforma web para orientacion vocacional con enfoque en experiencia de usuario, escalabilidad y buenas practicas de desarrollo frontend.",
+        "longDescription": "Plataforma web desarrollada con el objetivo de aplicar y consolidar buenas practicas de diseno y desarrollo en entornos digitales, integrando tecnologias modernas como React, Tailwind CSS y Vite. El proyecto se centra en la creacion de interfaces intuitivas, eficientes y adaptables a distintos dispositivos, priorizando la experiencia del usuario y la escalabilidad.\nMas alla de su enfoque tecnico, la plataforma aborda una problematica relevante: la falta de orientacion vocacional en jovenes que deben elegir una carrera profesional. La propuesta busca ofrecer un entorno digital que facilite la identificacion de habilidades, intereses y posibles caminos profesionales, combinando tecnologia con impacto social.",
+        "genre": "Pagina web",
+        "roles": ["Frontend Developer", "Disenador UI/UX", "Desarrollador Web"],
+        "tools": ["React", "Vite", "Tailwind CSS", "Figma", "Herramientas de IA aplicadas al desarrollo"],
+        "learnings": "Desarrollo de aplicaciones web responsivas, integracion de tecnologias modernas (React, Vite, Tailwind), implementacion de buenas practicas de UI/UX y uso de herramientas de IA como apoyo en el desarrollo."
+      },
+      "9": {
+        "name": "Ilustraciones",
+        "shortDescription": "Coleccion de ilustraciones enfocadas en personajes, identidad visual y recursos graficos para experiencias interactivas.",
+        "longDescription": "Coleccion de ilustraciones desarrolladas a lo largo de mi proceso universitario, enfocadas en diseno de personajes, construccion de identidades visuales y desarrollo de elementos graficos para experiencias interactivas. Incluye trabajos de concept art, storytelling visual, storyboard y recursos utilizados en la produccion de videojuegos.\nEl espacio tambien incorpora una propuesta interactiva donde el usuario puede explorar los contenidos de manera dinamica, reforzando la presentacion visual del portafolio.",
+        "genre": "Arcade, Interactivo",
+        "roles": ["Ilustrador", "Concept Artist", "Disenador Visual"],
+        "tools": ["Krita", "Adobe Photoshop", "Aseprite", "Tecnicas de ilustracion tradicional (analoga)"],
+        "learnings": "Desarrollo de habilidades en ilustracion digital, construccion de identidad visual, exploracion de estilos graficos y uso de recursos tanto digitales como tradicionales para la creacion artistica."
+      }
+    }
+  }
+}

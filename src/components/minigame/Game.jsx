@@ -6,6 +6,7 @@ import { Enemy } from './Enemy'
 import { Projectile } from './Projectile'
 import { Gallery } from './Gallery'
 import { useAchievements } from '../../context/AchievementContext'
+import { useI18n } from '../../context/I18nContext'
 
 const PLAYER_WIDTH = 74
 const PLAYER_HEIGHT = 74
@@ -85,6 +86,7 @@ function Explosion({ effect }) {
 }
 
 export function Game({ title, subtitle }) {
+  const { t } = useI18n()
   const { registerPerfectMinigame } = useAchievements()
   const stageRef = useRef(null)
   const keysRef = useRef({ left: false, right: false })
@@ -370,15 +372,15 @@ export function Game({ title, subtitle }) {
   return (
     <section className="minigame-layout">
       <header className="minigame-header">
-        <p className="minigame-kicker">Arcade Showcase</p>
+        <p className="minigame-kicker">{t('ui.game.arcadeKicker')}</p>
         <h1>{title}</h1>
         <p>{subtitle}</p>
       </header>
 
       <div className="minigame-hud">
-        <span>Puntaje: {game.score}</span>
-        <span>Objetivos: {game.destroyed} / {totalTargets}</span>
-        <span>Precision: {accuracy}%</span>
+        <span>{`${t('ui.game.score')}: ${game.score}`}</span>
+        <span>{`${t('ui.game.targets')}: ${game.destroyed} / ${totalTargets}`}</span>
+        <span>{`${t('ui.game.accuracy')}: ${accuracy}%`}</span>
       </div>
 
       <div
@@ -411,20 +413,20 @@ export function Game({ title, subtitle }) {
 
         {phase !== 'playing' && (
           <div className="minigame-overlay-panel">
-            <h2>{phase === 'gallery' ? 'Nivel Completado' : 'Invasion de Memorias'}</h2>
+            <h2>{phase === 'gallery' ? t('ui.game.levelCompleted') : t('ui.game.memoryInvasion')}</h2>
             <p>
               {phase === 'gallery'
-                ? 'Todos los archivos fueron destruidos. Se habilito la galeria final.'
-                : 'Mueve la nave con A/D o flechas, y dispara con espacio.'}
+                ? t('ui.game.galleryEnabled')
+                : t('ui.game.controlsHint')}
             </p>
             <Button onClick={startGame} bg="black" textColor="white" borderColor="white" shadow="white">
-              {phase === 'gallery' ? 'Jugar de nuevo' : 'Iniciar partida'}
+              {phase === 'gallery' ? t('ui.game.playAgain') : t('ui.game.startGame')}
             </Button>
           </div>
         )}
       </div>
 
-      <div className="minigame-mobile-controls" aria-label="Controles tactiles">
+      <div className="minigame-mobile-controls" aria-label={t('ui.game.touchControlsAria')}>
         <button
           type="button"
           onPointerDown={() => {
@@ -440,10 +442,10 @@ export function Game({ title, subtitle }) {
             touchDirectionRef.current = 0
           }}
         >
-          Izquierda
+          {t('ui.game.left')}
         </button>
         <button type="button" className="minigame-shoot-btn" onClick={shoot}>
-          Disparar
+          {t('ui.game.shoot')}
         </button>
         <button
           type="button"
@@ -460,7 +462,7 @@ export function Game({ title, subtitle }) {
             touchDirectionRef.current = 0
           }}
         >
-          Derecha
+          {t('ui.game.right')}
         </button>
       </div>
 

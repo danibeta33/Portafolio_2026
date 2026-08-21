@@ -1,0 +1,230 @@
+{
+  "ui": {
+    "navbar": {
+      "themeAria": "Switch light and dark mode",
+      "themeLight": "Light",
+      "themeDark": "Dark",
+      "languageAria": "Change language",
+      "languageEs": "ES",
+      "languageEn": "EN"
+    },
+    "hero": {
+      "systemsBeta": "BETA SYSTEMS",
+      "bubble": "Click me to change the color",
+      "subtitle": "Creative professional portfolio"
+    },
+    "sections": {
+      "profile": "<Profile />",
+      "services": "<Services />",
+      "projects": "<Projects />",
+      "contact": "<Contact />"
+    },
+    "projects": {
+      "intro": "These are some of the projects I have worked on and will continue developing. I invite you to explore them and experience each proposal.",
+      "categoryAria": "Project categories",
+      "genre": "Genre:",
+      "captures": "Captures",
+      "viewProject": "View project",
+      "itchUnavailable": "Itch unavailable",
+      "trailer": "Trailer",
+      "trailerUnavailable": "Trailer unavailable"
+    },
+    "game": {
+      "back": "Back to Home",
+      "roles": "Roles",
+      "expectations": "Expectations",
+      "expectationsFallback": "No expectations recorded yet.",
+      "learnings": "Learned",
+      "learningsFallback": "No learnings recorded yet.",
+      "tools": "Tools and proficiency",
+      "genre": "Genre",
+      "categories": "Categories",
+      "itchLabel": "Go to Itch",
+      "itchUnavailable": "Itch unavailable",
+      "viewTrailer": "Watch Trailer",
+      "trailerUnavailable": "Trailer unavailable",
+      "captures": "Captures",
+      "arcadeKicker": "Arcade Showcase",
+      "score": "Score",
+      "targets": "Targets",
+      "accuracy": "Accuracy",
+      "levelCompleted": "Level Completed",
+      "memoryInvasion": "Memory Invasion",
+      "galleryEnabled": "All files were destroyed. Final gallery is now unlocked.",
+      "controlsHint": "Move with A/D or arrows, shoot with space.",
+      "playAgain": "Play again",
+      "startGame": "Start game",
+      "touchControlsAria": "Touch controls",
+      "left": "Left",
+      "shoot": "Shoot",
+      "right": "Right",
+      "galleryAria": "Final gallery of captures and videos",
+      "galleryUnlocked": "Final gallery unlocked",
+      "galleryHint": "You destroyed all targets. Click any file to preview it in large view.",
+      "openPreview": "Open preview for {{filename}}",
+      "previewAria": "Preview",
+      "closePreview": "Close preview",
+      "close": "Close",
+      "playerAlt": "Ship"
+    },
+    "contact": {
+      "description": "Available for collaborations, projects, and opportunities."
+    },
+    "footer": {
+      "rights": "All rights reserved."
+    },
+    "notFound": {
+      "title": "Project not found",
+      "description": "The route does not match any registered project.",
+      "back": "Back to Home"
+    },
+    "achievements": {
+      "defs": [
+        { "id": 1, "name": "Rookie Explorer", "description": "Explore from Home to Bottom" },
+        { "id": 2, "name": "Click Hater?", "description": "That 200 CPS is tryhard level" },
+        { "id": 3, "name": "Did you like it?", "description": "Did you see everything?" },
+        { "id": 4, "name": "Boomer in Action?", "description": "100% accuracy despite the years" },
+        { "id": 5, "name": "Web Platinum Hunter", "description": "Thanks for supporting this page" }
+      ],
+      "toggleOn": "Enable Rainbow",
+      "toggleOff": "Disable Rainbow",
+      "lockedMessage": "Complete all achievements to unlock this feature",
+      "openPanel": "Open achievements panel",
+      "openAchievements": "Open achievements",
+      "unlockKicker": "Achievement Unlocked",
+      "close": "Close",
+      "animatedAlt": "{{name}} animated",
+      "statusUnlocked": "unlocked",
+      "statusLocked": "locked",
+      "assetUnavailable": "Asset unavailable"
+    }
+  },
+  "site": {
+    "navLinks": [
+      { "label": "Home", "href": "#inicio" },
+      { "label": "Profile", "href": "#perfil" },
+      { "label": "Services", "href": "#servicios" },
+      { "label": "Projects", "href": "#proyectos" },
+      { "label": "Contact", "href": "#contacto" }
+    ],
+    "profile": {
+      "location": "Colombia",
+      "bio": [
+        "I am a Digital Entertainment Design Engineering student focused on video game development, art for this industry, and building VR/AR digital experiences.",
+        "I have participated in creating multiple interactive experiences and in several game jam events where, together with my team OP Studios, I gained experience in collaborative production workflows.",
+        "I specialize in building visual identities for video games and implementing them in Unity, turning concepts into functional experiences. I have also worked experimentally as a Technical Artist to keep strengthening my skills and deepen the integration between art, design, and technology inside game engines."
+      ],
+      "quote": "\"On my business card, I am a corporate president. In my mind, I am a game developer. But in my heart, I am a gamer.\"",
+      "quoteAuthor": "Satoru Iwata",
+      "roles": ["Technical Artist", "Game Developer", "Video Editor", "Illustrator"]
+    },
+    "services": [
+      {
+        "title": "Technical Art for Games",
+        "description": "Development of optimized visual workflows, artistic integration, and support for art teams to materialize the project vision."
+      },
+      {
+        "title": "Gameplay Development",
+        "description": "Design and implementation of mechanics focused on fun experiences, along with level design."
+      },
+      {
+        "title": "Video Editing",
+        "description": "Narrative editing, visual rhythm, and post-production for promotional pieces and digital content."
+      },
+      {
+        "title": "Illustration",
+        "description": "Concept art and digital illustration (pixel and vector) focused on visual identity, storytelling, and project presentation."
+      }
+    ],
+    "categoryLabels": {
+      "Todos": "All",
+      "Proyectos Universitarios": "University Projects",
+      "Proyectos Personales": "Personal Projects",
+      "Ganadores": "Winners",
+      "Proyectos de Formacion": "Training Projects"
+    },
+    "projects": {
+      "1": {
+        "name": "Perfect Tourist",
+        "shortDescription": "Using whatever you have at hand, overcome challenges, hustle for cash, and save wisely to achieve the trip of your life.",
+        "longDescription": "Game developed for INTERACTION: SUMMER GAME JAM, first-place winner.\n\nA fast challenge game where you must improvise because... you forgot your vacation plans. With whatever you have available, you must overcome challenges, hustle for money, and save wisely to get the trip of your life.\nDive into beach, sun, and sea vibes, and turn every situation into the perfect travel opportunity.",
+        "genre": "Puzzle, Action",
+        "roles": ["Developed with OP Studios", "Technical Artist", "Developer", "Game Designer"],
+        "learnings": "Built internal pipeline tools to optimize workflows, created scalable content, implemented reusable rigging and animation systems, and collaborated closely with the creative team to strengthen production consistency."
+      },
+      "2": {
+        "name": "MasKeeper",
+        "shortDescription": "In MasKeeper, you play as an ancient golem guardian protecting masks that shape reality.",
+        "longDescription": "Game developed for GLOBAL GAME JAM 2026, second-place winner in Antioquia. Presented with its own booth at Feria de la Animacion 2026.\nYou take the role of the Mask Keeper, an ancient golem who protects the masks that shape reality.\nAfter a long sleep, you wake up to a fragmented world after most masks were stolen.",
+        "genre": "Puzzle",
+        "roles": ["Developed with OP Studios", "2D Artist / Visual Designer", "Level Designer", "Game Designer"],
+        "learnings": "Contributed to character and environment design, global art direction, and visual effects such as particles. Built a modular visual system that enabled rapid level creation under tight production time."
+      },
+      "3": {
+        "name": "Klondike Miner",
+        "shortDescription": "Project focused on learning game design by combining roguelite elements with mechanics inspired by the Klondike board game.",
+        "longDescription": "Project focused on learning game design by combining roguelite elements with mechanics inspired by the Klondike board game.\n\nGet ready to roll the dice and dive into an experience where chance and strategy come together. Explore a casino-themed mine full of mysterious materials using magical dice that define your progress each run.",
+        "genre": "Roguelite, Dice",
+        "roles": ["Pixel Artist", "Game Designer", "Developer"],
+        "learnings": "Produced the full pixel art visual direction, built a coherent mining/roguelite identity, and explored progression, replayability, and chance-based mechanics design."
+      },
+      "4": {
+        "name": "The White Square Simulator: Clicker",
+        "shortDescription": "Clicker experience designed to deliver constant, satisfying progression through precise mathematical systems.",
+        "longDescription": "Clicker experience designed to deliver constant, satisfying progression through precise mathematical systems. The player manages a store, optimizes processes, handles orders, and expands the business.",
+        "genre": "Clicker",
+        "roles": ["Developer", "Game Designer", "UI/UX Designer", "Artist"],
+        "learnings": "Built the project end-to-end solo (art + programming), focusing on systems balancing, progression design, game economy, difficulty curves, and player retention mechanics."
+      },
+      "5": {
+        "name": "Shadows of the Mind",
+        "shortDescription": "2D top-down psychological horror and puzzle game set in the city of Amarys.",
+        "longDescription": "2D top-down psychological horror and puzzle game set in Amarys, where a virus turns people with mental disorders into hostile creatures. The player explores a hospital while facing narrative and cognitive challenges.",
+        "genre": "Puzzle, Horror",
+        "roles": ["2D Artist", "Game Designer", "Narrative Designer"],
+        "learnings": "First game development project focused on tool experimentation, teamwork, and end-to-end experience building, with active participation in artistic and conceptual creation."
+      },
+      "6": {
+        "name": "Desparcha 2-3-4",
+        "shortDescription": "Local multiplayer for 2 to 4 players inspired by traditional Colombian games like marbles, tag, sack race, and tejo.",
+        "longDescription": "Local multiplayer experience for 2 to 4 players inspired by traditional Colombian games like marbles, tag, sack race, and tejo. Each minigame offers fast dynamics that combine skill, reflexes, and strategy while integrating cultural elements into its visual identity.\nDeveloped by The Lost Kids Studio x OP Studios, it won Creativity in Gameplay and Best Semester Game at DEX Showcase 2025-02.",
+        "genre": "Puzzle, Minigames",
+        "roles": ["2D Artist (Vector)", "Game Designer", "Mechanics Designer", "UI Designer"],
+        "learnings": "Developed a culturally coherent, quality-focused product. Led full vector visual design (characters, icons, environments) and minigame gameplay design, integrating Colombian aesthetics with clear local-multiplayer mechanics."
+      },
+      "7": {
+        "name": "Video Editing Channel",
+        "shortDescription": "Channel with video editing projects across educational, personal, and professional contexts, showing technical and creative growth.",
+        "longDescription": "This channel gathers projects that reflect my video editing experience across educational, personal, and professional contexts. Over time, I have continuously improved my skills by exploring multiple formats and styles to increase quality.\nIt includes both final outputs and editing processes, making my evolution and creative approach visible. I have also learned to adapt to tool limitations (versions or plans), optimizing available resources for solid results.",
+        "genre": "Videos",
+        "roles": ["Video Editor", "Audiovisual Designer", "Content Creator"],
+        "tools": [
+          "Adobe Premiere Pro - Mid level (still learning)",
+          "Camtasia - High level",
+          "CapCut - High level",
+          "Vegas Pro - Mid level",
+          "Adobe After Effects - Basic level (learning)"
+        ],
+        "learnings": "Developed audiovisual storytelling, visual pacing, adaptation to multiple content formats, and technical resource optimization in editing tools."
+      },
+      "8": {
+        "name": "Career Guidance Web Platform",
+        "shortDescription": "Career guidance web platform focused on user experience, scalability, and modern frontend best practices.",
+        "longDescription": "Web platform created to apply and consolidate design and development best practices in digital products, integrating modern technologies such as React, Tailwind CSS, and Vite. The project focuses on intuitive, efficient, responsive interfaces, prioritizing user experience and scalability.\nBeyond the technical side, it addresses a relevant problem: lack of career guidance for young people choosing a professional path, combining technology with social impact.",
+        "genre": "Web app",
+        "roles": ["Frontend Developer", "UI/UX Designer", "Web Developer"],
+        "tools": ["React", "Vite", "Tailwind CSS", "Figma", "AI tools applied to development"],
+        "learnings": "Built responsive web applications, integrated modern tech (React, Vite, Tailwind), applied UI/UX best practices, and used AI tools as development support."
+      },
+      "9": {
+        "name": "Illustrations",
+        "shortDescription": "Collection of illustrations focused on character design, visual identities, and graphic assets for interactive experiences.",
+        "longDescription": "Collection of illustrations created throughout my university process, focused on character design, visual identity building, and graphic elements for interactive experiences. Includes concept art, visual storytelling, storyboard, and assets used in game production.\nThe space also includes an interactive proposal where users explore the content dynamically, reinforcing the visual presentation of the portfolio.",
+        "genre": "Arcade, Interactive",
+        "roles": ["Illustrator", "Concept Artist", "Visual Designer"],
+        "tools": ["Krita", "Adobe Photoshop", "Aseprite", "Traditional illustration techniques (analog)"],
+        "learnings": "Developed skills in digital illustration, visual identity construction, style exploration, and use of both digital and traditional resources for artistic creation."
+      }
+    }
+  }
+}

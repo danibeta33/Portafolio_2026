@@ -1,4 +1,5 @@
 import { Bubble } from '../ui/Bubble'
+import { useI18n } from '../../context/I18nContext'
 
 export function HeroSection({
   profile,
@@ -10,6 +11,8 @@ export function HeroSection({
   heroAccentDark,
   onNameClick,
 }) {
+  const { t } = useI18n()
+
   return (
     <section id="inicio" className={`hero-section hero-theme-${currentHeroTheme}`}>
       <div className="hero-pattern" aria-hidden="true">
@@ -19,7 +22,7 @@ export function HeroSection({
           </pre>
         ))}
         <div className="hero-sistemas-beta">
-          <span>SISTEMAS BETA</span>
+          <span>{t('ui.hero.systemsBeta')}</span>
         </div>
       </div>
 
@@ -30,7 +33,7 @@ export function HeroSection({
           textColor={isLightMode ? 'black' : 'white'}
           borderColor={isLightMode ? 'black' : 'white'}
         >
-          Presioname para cambiar el color
+          {t('ui.hero.bubble')}
         </Bubble>
         <h1
           className="hero-title-text"
@@ -42,7 +45,7 @@ export function HeroSection({
         >
           {`<${profile.name} />`}
         </h1>
-        <p className="hero-subtitle">Portafolio profesional creativo</p>
+        <p className="hero-subtitle">{t('ui.hero.subtitle')}</p>
         <div className="roles-grid">
           {profile.roles.map((role) => (
             <span key={role} className="chip">

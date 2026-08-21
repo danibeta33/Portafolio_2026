@@ -1,12 +1,18 @@
+import { useI18n } from '../../context/I18nContext'
+
 export function Navbar({
   links,
   scrolled,
   isLightMode,
   onToggleMode,
+  isEnglish,
+  onToggleLocale,
   onLogoClick,
   onNavClick,
   showLinks = true,
 }) {
+  const { t } = useI18n()
+
   return (
     <header className="site-header">
       <nav className="nav-shell">
@@ -23,11 +29,18 @@ export function Navbar({
               ))}
             </div>
           )}
-          <label className="mode-switch" aria-label="Cambiar modo claro u oscuro">
-            <input type="checkbox" checked={isLightMode} onChange={(event) => onToggleMode(event.target.checked)} />
-            <span className="mode-switch-slider" />
-            <span className="mode-switch-text">{isLightMode ? 'Light' : 'Dark'}</span>
-          </label>
+          <div className="switch-cluster">
+            <label className="mode-switch" aria-label={t('ui.navbar.themeAria')}>
+              <input type="checkbox" checked={isLightMode} onChange={(event) => onToggleMode(event.target.checked)} />
+              <span className="mode-switch-slider" />
+              <span className="mode-switch-text">{isLightMode ? t('ui.navbar.themeLight') : t('ui.navbar.themeDark')}</span>
+            </label>
+            <label className="mode-switch" aria-label={t('ui.navbar.languageAria')}>
+              <input type="checkbox" checked={isEnglish} onChange={(event) => onToggleLocale(event.target.checked)} />
+              <span className="mode-switch-slider" />
+              <span className="mode-switch-text">{isEnglish ? t('ui.navbar.languageEn') : t('ui.navbar.languageEs')}</span>
+            </label>
+          </div>
         </div>
       </nav>
     </header>

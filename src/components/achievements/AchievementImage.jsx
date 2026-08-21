@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { resolvePublicAssetPath } from '../../utils/assetPaths'
+import { useI18n } from '../../context/I18nContext'
 
 const DEFAULT_FALLBACK = resolvePublicAssetPath('/imgs/Logro1Bloq.png')
 
 export function AchievementImage({ src, alt, fallbackSrc = DEFAULT_FALLBACK, className = '', ...rest }) {
+  const { t } = useI18n()
   const [currentSrc, setCurrentSrc] = useState(src)
   const [hasError, setHasError] = useState(false)
 
@@ -27,7 +29,7 @@ export function AchievementImage({ src, alt, fallbackSrc = DEFAULT_FALLBACK, cla
   return (
     <div className={`achievement-image-wrap ${className}`.trim()}>
       <img src={currentSrc} alt={alt} onError={handleError} {...rest} />
-      {hasError && currentSrc === fallbackSrc && <span className="achievement-image-error">Asset unavailable</span>}
+      {hasError && currentSrc === fallbackSrc && <span className="achievement-image-error">{t('ui.achievements.assetUnavailable')}</span>}
     </div>
   )
 }

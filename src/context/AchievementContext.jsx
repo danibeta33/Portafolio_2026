@@ -1,12 +1,13 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useI18n } from './I18nContext'
 import { resolvePublicAssetPath } from '../utils/assetPaths'
 import { useSound } from './SoundContext'
 
 const LOGRO_BASE = '/imgs'
 const TOTAL_GAME_PAGES = 9
 
-const ACHIEVEMENT_DEFS = [
+const FALLBACK_ACHIEVEMENT_DEFS = [
   {
     id: 1,
     name: 'Explorador Novato',
@@ -58,6 +59,7 @@ const initialState = {
 const AchievementContext = createContext(null)
 
 export function AchievementProvider({ children }) {
+  const { t } = useI18n()
   const location = useLocation()
   const { playSound } = useSound()
   const [state, setState] = useState(initialState)
@@ -69,6 +71,14 @@ export function AchievementProvider({ children }) {
   const rainbowTimeoutRef = useRef(null)
   const hasTriggeredAutoRainbowRef = useRef(false)
   const rainbowMessageTimeoutRef = useRef(null)
+
+  const achievementDefs = useMemo(() => {
+    const defs = t('ui.achievements.defs', {}, [])
+    if (Array.isArray(defs) && defs.length > 0) {
+      return defs
+    }
+    return FALLBACK_ACHIEVEMENT_DEFS
+  }, [t])
 
   useEffect(() => {
     return () => {
@@ -82,8 +92,8 @@ export function AchievementProvider({ children }) {
   }, [])
 
   const achievements = useMemo(
-    () => ACHIEVEMENT_DEFS.map((item) => ({ ...addAssetPaths(item), unlocked: state.unlocked[item.id] })),
-    [state.unlocked],
+    () => achievementDefs.map((item) => ({ ...addAssetPaths(item), unlocked: state.unlocked[item.id] })),
+    [achievementDefs, state.unlocked],
   )
 
   const enqueueNotification = useCallback((achievement) => {
@@ -116,13 +126,13 @@ export function AchievementProvider({ children }) {
 
       if (!didUnlock) return
 
-      const achievement = ACHIEVEMENT_DEFS.find((item) => item.id === id)
+      const achievement = achievementDefs.find((item) => item.id === id)
       if (achievement) {
         playUnlockSound()
         enqueueNotification(addAssetPaths(achievement))
       }
     },
-    [enqueueNotification, playUnlockSound],
+    [achievementDefs, enqueueNotification, playUnlockSound],
   )
 
   const registerPerfectMinigame = useCallback(() => {
@@ -137,7 +147,7 @@ export function AchievementProvider({ children }) {
 
   const toggleRainbowMode = useCallback(() => {
     if (!isRainbowUnlocked) {
-      setRainbowMessage('Complete all achievements to unlock this feature')
+      setRainbowMessage(t('ui.achievements.lockedMessage'))
       if (rainbowMessageTimeoutRef.current) {
         window.clearTimeout(rainbowMessageTimeoutRef.current)
       }
@@ -149,7 +159,7 @@ export function AchievementProvider({ children }) {
 
     setRainbowMessage('')
     setIsRainbowManual((prev) => !prev)
-  }, [isRainbowUnlocked])
+  }, [isRainbowUnlocked, t])
 
   useEffect(() => {
     const isHome = location.pathname === '/'

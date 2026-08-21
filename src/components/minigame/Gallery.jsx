@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { resolvePublicAssetPath } from '../../utils/assetPaths'
+import { useI18n } from '../../context/I18nContext'
 
 const FALLBACK_IMAGE = resolvePublicAssetPath('/imgs/Minijuego/minijuego1.jpg')
 
@@ -41,14 +42,15 @@ function GalleryMedia({ asset }) {
 }
 
 export function Gallery({ assets }) {
+  const { t } = useI18n()
   const [previewAsset, setPreviewAsset] = useState(null)
 
   const closePreview = () => setPreviewAsset(null)
 
   return (
-    <section className="minigame-gallery-wrap" aria-label="Galeria final de capturas y videos">
-      <h2>Galeria final desbloqueada</h2>
-      <p>Has destruido todos los objetivos. Haz clic sobre cualquier archivo para verlo en previsualizacion grande.</p>
+    <section className="minigame-gallery-wrap" aria-label={t('ui.game.galleryAria')}>
+      <h2>{t('ui.game.galleryUnlocked')}</h2>
+      <p>{t('ui.game.galleryHint')}</p>
 
       <div className="minigame-gallery-grid">
         {assets.map((asset) => (
@@ -57,7 +59,7 @@ export function Gallery({ assets }) {
             type="button"
             className="minigame-gallery-card"
             onClick={() => setPreviewAsset(asset)}
-            aria-label={`Abrir previsualizacion de ${asset.filename}`}
+            aria-label={t('ui.game.openPreview', { filename: asset.filename }, `Abrir previsualizacion de ${asset.filename}`)}
           >
             <GalleryMedia asset={asset} />
           </button>
@@ -65,10 +67,10 @@ export function Gallery({ assets }) {
       </div>
 
       {previewAsset && (
-        <div className="minigame-preview-backdrop" role="dialog" aria-modal="true" aria-label="Previsualizacion" onClick={closePreview}>
+        <div className="minigame-preview-backdrop" role="dialog" aria-modal="true" aria-label={t('ui.game.previewAria')} onClick={closePreview}>
           <div className="minigame-preview-panel" onClick={(event) => event.stopPropagation()}>
-            <button type="button" className="minigame-preview-close" onClick={closePreview} aria-label="Cerrar previsualizacion">
-              Cerrar
+            <button type="button" className="minigame-preview-close" onClick={closePreview} aria-label={t('ui.game.closePreview')}>
+              {t('ui.game.close')}
             </button>
             {previewAsset.kind === 'video' ? (
               <video src={previewAsset.src} controls autoPlay loop playsInline preload="metadata" />

@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { resolvePublicAssetPath } from '../../utils/assetPaths'
+import { useI18n } from '../../context/I18nContext'
 
 const FALLBACK_IMAGE = resolvePublicAssetPath('/imgs/Minijuego/minijuego1.jpg')
 
 export function Enemy({ enemy }) {
+  const { t } = useI18n()
   const [hasFailed, setHasFailed] = useState(false)
 
   const handleMediaError = () => {
@@ -29,7 +31,12 @@ export function Enemy({ enemy }) {
       {enemy.kind === 'video' && !hasFailed ? (
         <video src={enemy.src} autoPlay muted loop playsInline preload="metadata" onError={handleMediaError} />
       ) : hasFailed ? (
-        <img src={FALLBACK_IMAGE} alt={`${enemy.filename} no disponible`} loading="lazy" draggable={false} />
+        <img
+          src={FALLBACK_IMAGE}
+          alt={t('ui.game.mediaUnavailable', { name: enemy.filename }, `${enemy.filename} no disponible`)}
+          loading="lazy"
+          draggable={false}
+        />
       ) : (
         <img src={enemy.src} alt={enemy.filename} loading="lazy" draggable={false} onError={handleImageFallback} />
       )}

@@ -1,4 +1,5 @@
 import { Button } from '../ui/Button'
+import { useI18n } from '../../context/I18nContext'
 
 export function CategoryFilter({
   categoriesWithCounts,
@@ -7,9 +8,11 @@ export function CategoryFilter({
   heroAccentColor,
   onSelectCategory,
 }) {
+  const { t } = useI18n()
+
   return (
-    <div className="category-row" role="tablist" aria-label="Categorias de bloques">
-      {categoriesWithCounts.map(({ category, count }) => (
+    <div className="category-row" role="tablist" aria-label={t('ui.projects.categoryAria')}>
+      {categoriesWithCounts.map(({ category, label, count }) => (
         <Button
           key={category}
           bg={isLightMode ? '#ffffff' : '#000000'}
@@ -19,7 +22,7 @@ export function CategoryFilter({
           className={`category-button ${selectedCategory === category ? 'category-button-active' : ''}`}
           onClick={() => onSelectCategory(category)}
         >
-          {`${category} (${count})`}
+          {`${label} (${count})`}
         </Button>
       ))}
     </div>

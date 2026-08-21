@@ -7,6 +7,8 @@ export function MainLayout({
   scrolled,
   isLightMode,
   onToggleMode,
+  isEnglish,
+  onToggleLocale,
   onLogoClick,
   onNavClick,
   year,
@@ -20,6 +22,8 @@ export function MainLayout({
         scrolled={scrolled}
         isLightMode={isLightMode}
         onToggleMode={onToggleMode}
+        isEnglish={isEnglish}
+        onToggleLocale={onToggleLocale}
         onLogoClick={onLogoClick}
         onNavClick={onNavClick}
         showLinks={showLinks}
